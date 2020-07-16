@@ -1,0 +1,7 @@
+pylatex[matrices,matplotlib]>=1.3.3
+pandas>=1.0.5
+matplotlib>=3.2.2
+seaborn>=0.10.0
+onnx>=1.7.0
+numpy>=1.19.0
+scipy>=1.5.0
