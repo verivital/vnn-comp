@@ -1,0 +1,5 @@
+ VNN 2020 package for nnenum.
+ 
+ To run, go into the nnenum folder in bash and run ./run_in_docker. After completion, the results tables will be stored in results.tar.gz
+ 
+ The default timeout per benchmark is 1.5 seconds (0.025 minutes), which should complete all the measurements in 10-20 minutes. To increase the timeout to 5 minutes, pass a command line argument like: "./run_in_docker 5"
