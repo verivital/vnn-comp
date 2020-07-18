@@ -1,0 +1,99 @@
+\input{preamble.tex}
+\title{Benchmark Results for VeriNet}
+
+\begin{document}
+
+\maketitle
+
+\section{About}
+
+VeriNet~\cite{HenriksenLomuscio20} is a complete symbolic-interval
+propagation-based toolkit for local robustness properties supporting
+ReLU, Sigmoid and Tanh activation functions and Fully-Connected,
+Convolutional and Batch-normalisation layers. VeriNet uses several
+novels techniques to achieve a high level of performance, include a
+local gradient-based search around spurious counterexamples, an
+adaptive refinement strategy and optimal relaxations for the Sigmoid
+and Tanh activation functions. 
+
+We ran our toolkit on benchmarks in all three categories; however, we
+did not evaluate the ACAS Xu Benchmarks as VeriNet does not support
+all of the properties at this point. We Also did not evaluate VeriNet
+on all of the Cifar10 convolutional networks due to time constraints.
+We ran all benchmarks on a workstation with a Ryzen 3700X 3.6 GHz
+8-core CPU, 64 GB ram running Ubuntu 20.04 LTS with Linux kernel
+5.4.0. The VeriNet code is available at
+\url{https://vas.doc.ic.ac.uk/software/neural/}
+
+\section{Results}
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist-net_256x2.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist-net_256x4.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist-net_256x6.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist_0.1.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist_0.3.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/cifar10_2_255.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/cifar10_8_255.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist_logsig_200_50.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist_logsig_200_100_50.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist_tansig_200_50.pdf}
+\end{figure}
+
+\begin{figure}[!ht]
+\center
+\includegraphics[scale=0.8]{figures/mnist_tansig_200_100_50.pdf}
+\end{figure}
+
+\include{tables/mnist-net_256x2}
+\include{tables/mnist-net_256x4}
+\include{tables/mnist-net_256x6}
+\include{tables/mnist_0.1}
+\include{tables/mnist_0.3}
+\include{tables/cifar10_2_255}
+\include{tables/cifar10_8_255}
+\include{tables/mnist_logsig_200_50}
+\include{tables/mnist_logsig_200_100_50}
+\include{tables/mnist_tansig_200_50}
+\include{tables/mnist_tansig_200_100_50}
+
+\bibliographystyle{abbrv}
+\bibliography{verinet.bib}
+
+\end{document}

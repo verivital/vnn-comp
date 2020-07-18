@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ../../verinet/
+
+pipenv run python ./evaluation/benchmark_scripts/mnist_0.1_conv.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_0.3_conv.py
+
+pipenv run python ./evaluation/benchmark_scripts/cifar10_2_255_conv.py
+pipenv run python ./evaluation/benchmark_scripts/cifar10_8_255_conv.py
+
+./to_tex

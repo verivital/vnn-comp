@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd ../../verinet/
+
+pipenv run python ./evaluation/benchmark_scripts/mnist_logsig_200_50.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_logsig_200_100_50.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_tansig_200_50.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_tansig_200_100_50.py
+
+./to_tex

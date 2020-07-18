@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd ../../verinet/
+
+pipenv run python ./evaluation/benchmark_scripts/mnist-net256x2.py
+pipenv run python ./evaluation/benchmark_scripts/mnist-net256x4.py
+pipenv run python ./evaluation/benchmark_scripts/mnist-net256x6.py
+
+./to_tex

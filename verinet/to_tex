@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pipenv run python ./evaluation/result_scripts/to_tex.py
+cd ./evaluation/benchmark_results_tex/
+make
+cd ../../
+cp ./evaluation/benchmark_results_tex/results.pdf ./
