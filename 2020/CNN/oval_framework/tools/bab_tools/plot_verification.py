@@ -562,22 +562,13 @@ def plot_vnn_results():
     for base in bases:
         file_list = [
             f"{base}_KW_prox_100-pinit-eta10.0-feta10.0.pkl",
-            # f"{base}_KW_adam_175-pinit-ilr0.1,flr0.001.pkl",
-            # f"{base}_KW_gurobi.pkl",
-            # f"{base}_KW_gurobi-anderson_1.pkl",
         ]
         time_base = "BTime_KW"
         time_name_list = [
             f"{time_base}_prox_100",
-            # f"{time_base}_adam_175",
-            # f"{time_base}_gurobi",
-            # f"{time_base}_gurobi-anderson_1",
         ]
         labels = [
             "Proximal BaBSR",
-            # "Adam-BaBSR",
-            # "Gurobi-BaBSR",
-            # "Gur-And-BaBSR",
         ]
         timeout = 300
         plot_from_tables_custom(folder, file_list, time_name_list, timeout, labels, base + ".pdf", f"MNIST ETH: {base}",
