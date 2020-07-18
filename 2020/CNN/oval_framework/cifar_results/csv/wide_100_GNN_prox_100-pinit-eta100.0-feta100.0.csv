@@ -1,4 +1,4 @@
-Idx,Eps,prop,BSAT_GNN_prox_100,Branches,Time(s)
+Idx,Eps,prop,SAT,Branches,Time(s)
 2013,0.09,0,False,498,32.71981406211853
 4025,0.088,8,False,1790,65.64913630485535
 5022,0.063,4,timeout,251474,3602.5349848270416

@@ -22,7 +22,7 @@ def pd2csv(path, result_path, keyword):
                     temp.loc[temp[key] == 'True', key] = 'false'
                     temp.loc[temp[key] == 'false', key] = 'False'
                     temp.loc[temp[key] == 'true', key] = 'True'
-                    temp = temp.rename(columns={key: "SAT"})
+                temp = temp.rename(columns={key: "SAT"})
             elif "BBran" in key:
                 temp = temp.rename(columns={key:"Branches"})
             elif "BTime" in key:
