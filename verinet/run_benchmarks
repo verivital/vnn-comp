@@ -1,0 +1,18 @@
+#!/bin/bash
+
+pipenv run python ./evaluation/benchmark_scripts/mnist-net256x2.py
+pipenv run python ./evaluation/benchmark_scripts/mnist-net256x4.py
+pipenv run python ./evaluation/benchmark_scripts/mnist-net256x6.py
+
+pipenv run python ./evaluation/benchmark_scripts/mnist_0.1_conv.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_0.3_conv.py
+
+pipenv run python ./evaluation/benchmark_scripts/mnist_logsig_200_50.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_logsig_200_100_50.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_tansig_200_50.py
+pipenv run python ./evaluation/benchmark_scripts/mnist_tansig_200_100_50.py
+
+pipenv run python ./evaluation/benchmark_scripts/cifar10_2_255_conv.py
+pipenv run python ./evaluation/benchmark_scripts/cifar10_8_255_conv.py
+
+./to_tex

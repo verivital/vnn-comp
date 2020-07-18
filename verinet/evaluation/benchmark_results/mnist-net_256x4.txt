@@ -1,0 +1,79 @@
+Benchmarking with:Timeout 900 seconds 
+Model path: ./evaluation/benchmark_scripts/../../../2020/PWL/benchmark/mnist/oval/mnist-net_256x4.onnx 
+
+Benchmarking with epsilon = 0.02: 
+
+Final result of input 0: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.108 seconds
+Final result of input 1: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.026 seconds
+Final result of input 2: Status.Undecided, branches explored: 146392, max depth: 60, time spent: 900.097 seconds
+Final result of input 3: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.034 seconds
+Final result of input 4: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 5: Status.Safe, branches explored: 15, max depth: 5, time spent: 0.278 seconds
+Final result of input 6: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.031 seconds
+Final result of input 7: Status.Undecided, branches explored: 104600, max depth: 69, time spent: 900.138 seconds
+Final result of input 8: Status.Safe, branches explored: 81, max depth: 11, time spent: 1.261 seconds
+Final result of input 9: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.034 seconds
+Final result of input 10: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 11: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 12: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 13: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 14: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 15: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 16: Status.Undecided, branches explored: 249392, max depth: 65, time spent: 900.052 seconds
+Final result of input 17: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.034 seconds
+Final result of input 18: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.029 seconds
+Final result of input 19: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 20: Status.Undecided, branches explored: 236092, max depth: 66, time spent: 900.055 seconds
+Final result of input 21: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.033 seconds
+Final result of input 22: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 23: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.025 seconds
+Final result of input 24: Status.Undecided, branches explored: 221994, max depth: 69, time spent: 900.069 seconds
+
+Time spent in solver: 4502.570284366608
+Total number of images verified as safe: 19
+Safe images: [0, 1, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19, 21, 22, 23]
+Total number of images verified as unsafe: 1
+Unsafe images: [18]
+Total number of images timed-out: 5
+Timed-out images: [2, 7, 16, 20, 24]
+Total number of images with underflow: 0
+Underflow images: []
+
+Benchmarking with epsilon = 0.05: 
+
+Final result of input 0: Status.Undecided, branches explored: 34639, max depth: 187, time spent: 900.401 seconds
+Final result of input 1: Status.Undecided, branches explored: 75844, max depth: 128, time spent: 900.183 seconds
+Final result of input 2: Status.Unsafe, branches explored: 33, max depth: 16, time spent: 0.582 seconds
+Final result of input 3: Status.Undecided, branches explored: 133831, max depth: 77, time spent: 900.088 seconds
+Final result of input 4: Status.Undecided, branches explored: 24412, max depth: 210, time spent: 900.479 seconds
+Final result of input 5: Status.Undecided, branches explored: 18391, max depth: 255, time spent: 900.613 seconds
+Final result of input 6: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.040 seconds
+Final result of input 7: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.033 seconds
+Final result of input 8: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.032 seconds
+Final result of input 9: Status.Undecided, branches explored: 55947, max depth: 149, time spent: 900.133 seconds
+Final result of input 10: Status.Undecided, branches explored: 79326, max depth: 100, time spent: 900.174 seconds
+Final result of input 11: Status.Undecided, branches explored: 125225, max depth: 116, time spent: 900.112 seconds
+Final result of input 12: Status.Undecided, branches explored: 31878, max depth: 209, time spent: 900.387 seconds
+Final result of input 13: Status.Undecided, branches explored: 123950, max depth: 69, time spent: 900.127 seconds
+Final result of input 14: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.042 seconds
+Final result of input 15: Status.Undecided, branches explored: 34005, max depth: 177, time spent: 900.349 seconds
+Final result of input 16: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.060 seconds
+Final result of input 17: Status.Undecided, branches explored: 66231, max depth: 135, time spent: 900.216 seconds
+Final result of input 18: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.045 seconds
+Final result of input 19: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.035 seconds
+Final result of input 20: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.033 seconds
+Final result of input 21: Status.Undecided, branches explored: 39257, max depth: 186, time spent: 900.274 seconds
+Final result of input 22: Status.Undecided, branches explored: 46404, max depth: 189, time spent: 900.262 seconds
+Final result of input 23: Status.Undecided, branches explored: 41084, max depth: 191, time spent: 900.292 seconds
+Final result of input 24: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.043 seconds
+
+Time spent in solver: 13505.247184991837
+Total number of images verified as safe: 0
+Safe images: []
+Total number of images verified as unsafe: 10
+Unsafe images: [2, 6, 7, 8, 14, 16, 18, 19, 20, 24]
+Total number of images timed-out: 15
+Timed-out images: [0, 1, 3, 4, 5, 9, 10, 11, 12, 13, 15, 17, 21, 22, 23]
+Total number of images with underflow: 0
+Underflow images: []
+

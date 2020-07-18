@@ -1,0 +1,116 @@
+Benchmarking with:Timeout 300 seconds 
+Model path: ./evaluation/benchmark_scripts/../../../2020/CNN/benchmark/mnist/eth/mnist_0.3.onnx 
+
+Benchmarking with epsilon = 0.3: 
+
+Final result of input 0: Status.Safe, branches explored: 2873, max depth: 17, time spent: 12.239 seconds
+Final result of input 1: Status.Undecided, branches explored: 17798, max depth: 40, time spent: 300.330 seconds
+Final result of input 2: Status.Undecided, branches explored: 22839, max depth: 31, time spent: 300.349 seconds
+Final result of input 3: Status.Undecided, branches explored: 10740, max depth: 64, time spent: 300.466 seconds
+Final result of input 4: Status.Undecided, branches explored: 15206, max depth: 54, time spent: 300.393 seconds
+Final result of input 5: Status.Safe, branches explored: 333, max depth: 11, time spent: 21.791 seconds
+Final result of input 6: Status.Undecided, branches explored: 8269, max depth: 47, time spent: 300.448 seconds
+Final result of input 7: Status.Undecided, branches explored: 9384, max depth: 63, time spent: 300.348 seconds
+Final result of input 8: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.229 seconds
+Final result of input 9: Status.Undecided, branches explored: 8748, max depth: 71, time spent: 300.336 seconds
+Final result of input 10: Status.Safe, branches explored: 1503, max depth: 13, time spent: 23.354 seconds
+Final result of input 11: Status.Undecided, branches explored: 10160, max depth: 68, time spent: 300.372 seconds
+Final result of input 12: Status.Undecided, branches explored: 8709, max depth: 58, time spent: 300.406 seconds
+Final result of input 13: Status.Undecided, branches explored: 25882, max depth: 46, time spent: 300.354 seconds
+Final result of input 14: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.209 seconds
+Final result of input 15: Status.Undecided, branches explored: 9808, max depth: 82, time spent: 300.395 seconds
+Final result of input 16: Status.Undecided, branches explored: 12751, max depth: 55, time spent: 300.366 seconds
+Final result of input 17: Status.Safe, branches explored: 295, max depth: 12, time spent: 5.955 seconds
+Final result of input 18: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.240 seconds
+Final result of input 19: Status.Undecided, branches explored: 12996, max depth: 54, time spent: 300.319 seconds
+Final result of input 20: Status.Undecided, branches explored: 9552, max depth: 71, time spent: 300.308 seconds
+Final result of input 21: Status.Undecided, branches explored: 14214, max depth: 69, time spent: 300.390 seconds
+Final result of input 22: Status.Undecided, branches explored: 9701, max depth: 76, time spent: 300.428 seconds
+Final result of input 23: Status.Undecided, branches explored: 13211, max depth: 68, time spent: 300.469 seconds
+Final result of input 24: Status.Undecided, branches explored: 10138, max depth: 81, time spent: 300.324 seconds
+Final result of input 25: Status.Safe, branches explored: 893, max depth: 27, time spent: 8.418 seconds
+Final result of input 26: Status.Undecided, branches explored: 30013, max depth: 27, time spent: 300.338 seconds
+Final result of input 27: Status.Undecided, branches explored: 9481, max depth: 52, time spent: 300.339 seconds
+Final result of input 28: Status.Undecided, branches explored: 19712, max depth: 32, time spent: 300.389 seconds
+Final result of input 29: Status.Undecided, branches explored: 15026, max depth: 24, time spent: 300.331 seconds
+Final result of input 30: Status.Undecided, branches explored: 12087, max depth: 81, time spent: 300.373 seconds
+Final result of input 31: Status.Undecided, branches explored: 13543, max depth: 40, time spent: 300.404 seconds
+Final result of input 32: Status.Safe, branches explored: 65, max depth: 8, time spent: 4.250 seconds
+Final result of input 33: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.238 seconds
+Final result of input 34: Status.Undecided, branches explored: 21788, max depth: 62, time spent: 300.368 seconds
+Final result of input 35: Status.Undecided, branches explored: 11874, max depth: 57, time spent: 300.406 seconds
+Final result of input 36: Status.Undecided, branches explored: 10022, max depth: 63, time spent: 300.392 seconds
+Final result of input 37: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.216 seconds
+Final result of input 38: Status.Undecided, branches explored: 9995, max depth: 64, time spent: 300.370 seconds
+Final result of input 39: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.217 seconds
+Final result of input 40: Status.Safe, branches explored: 5, max depth: 2, time spent: 0.515 seconds
+Final result of input 41: Status.Undecided, branches explored: 12309, max depth: 68, time spent: 300.421 seconds
+Final result of input 42: Status.Undecided, branches explored: 15292, max depth: 35, time spent: 300.351 seconds
+Final result of input 43: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.234 seconds
+Final result of input 44: Status.Undecided, branches explored: 16057, max depth: 48, time spent: 300.418 seconds
+Final result of input 45: Status.Undecided, branches explored: 9078, max depth: 72, time spent: 300.421 seconds
+Final result of input 46: Status.Safe, branches explored: 21, max depth: 4, time spent: 0.643 seconds
+Final result of input 47: Status.Undecided, branches explored: 10337, max depth: 62, time spent: 300.396 seconds
+Final result of input 48: Status.Undecided, branches explored: 10548, max depth: 63, time spent: 300.432 seconds
+Final result of input 49: Status.Undecided, branches explored: 11032, max depth: 53, time spent: 300.383 seconds
+Final result of input 50: Status.Undecided, branches explored: 16037, max depth: 50, time spent: 300.407 seconds
+Final result of input 51: Status.Undecided, branches explored: 17807, max depth: 55, time spent: 300.393 seconds
+Final result of input 52: Status.Undecided, branches explored: 14847, max depth: 54, time spent: 300.442 seconds
+Final result of input 53: Status.Undecided, branches explored: 9278, max depth: 86, time spent: 300.374 seconds
+Final result of input 54: Status.Undecided, branches explored: 13554, max depth: 47, time spent: 300.367 seconds
+Final result of input 55: Status.Safe, branches explored: 2053, max depth: 17, time spent: 15.223 seconds
+Final result of input 56: Status.Undecided, branches explored: 39247, max depth: 27, time spent: 300.392 seconds
+Final result of input 57: Status.Undecided, branches explored: 14637, max depth: 34, time spent: 300.404 seconds
+Final result of input 58: Status.Undecided, branches explored: 8030, max depth: 70, time spent: 300.482 seconds
+Final result of input 59: Status.Undecided, branches explored: 8166, max depth: 89, time spent: 300.430 seconds
+Final result of input 60: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.224 seconds
+Final result of input 61: Status.Undecided, branches explored: 10131, max depth: 75, time spent: 300.429 seconds
+Final result of input 62: Status.Unsafe, branches explored: 6080, max depth: 74, time spent: 204.861 seconds
+Final result of input 63: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.235 seconds
+Final result of input 64: Status.Undecided, branches explored: 8935, max depth: 63, time spent: 300.440 seconds
+Final result of input 65: Skipped,correct_label: 4, predicted: 9
+Final result of input 66: Status.Undecided, branches explored: 9786, max depth: 66, time spent: 300.466 seconds
+Final result of input 67: Status.Undecided, branches explored: 28324, max depth: 40, time spent: 300.384 seconds
+Final result of input 68: Status.Undecided, branches explored: 10842, max depth: 71, time spent: 300.300 seconds
+Final result of input 69: Status.Undecided, branches explored: 47078, max depth: 37, time spent: 300.327 seconds
+Final result of input 70: Status.Safe, branches explored: 1, max depth: 0, time spent: 0.229 seconds
+Final result of input 71: Status.Safe, branches explored: 2645, max depth: 17, time spent: 7.254 seconds
+Final result of input 72: Status.Undecided, branches explored: 8560, max depth: 73, time spent: 300.425 seconds
+Final result of input 73: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.226 seconds
+Final result of input 74: Status.Safe, branches explored: 9, max depth: 3, time spent: 0.604 seconds
+Final result of input 75: Status.Undecided, branches explored: 9008, max depth: 78, time spent: 300.447 seconds
+Final result of input 76: Status.Undecided, branches explored: 17725, max depth: 45, time spent: 300.315 seconds
+Final result of input 77: Status.Undecided, branches explored: 10529, max depth: 74, time spent: 300.410 seconds
+Final result of input 78: Status.Undecided, branches explored: 10727, max depth: 62, time spent: 300.371 seconds
+Final result of input 79: Status.Safe, branches explored: 11, max depth: 4, time spent: 0.836 seconds
+Final result of input 80: Status.Undecided, branches explored: 9827, max depth: 52, time spent: 300.415 seconds
+Final result of input 81: Status.Undecided, branches explored: 24267, max depth: 50, time spent: 300.380 seconds
+Final result of input 82: Status.Safe, branches explored: 29, max depth: 5, time spent: 0.825 seconds
+Final result of input 83: Status.Safe, branches explored: 6811, max depth: 25, time spent: 120.149 seconds
+Final result of input 84: Status.Undecided, branches explored: 11172, max depth: 57, time spent: 300.523 seconds
+Final result of input 85: Status.Safe, branches explored: 81, max depth: 7, time spent: 3.521 seconds
+Final result of input 86: Status.Undecided, branches explored: 15779, max depth: 71, time spent: 300.367 seconds
+Final result of input 87: Status.Undecided, branches explored: 9232, max depth: 62, time spent: 300.444 seconds
+Final result of input 88: Status.Undecided, branches explored: 12553, max depth: 45, time spent: 300.301 seconds
+Final result of input 89: Status.Undecided, branches explored: 10728, max depth: 47, time spent: 300.314 seconds
+Final result of input 90: Status.Undecided, branches explored: 38691, max depth: 37, time spent: 300.327 seconds
+Final result of input 91: Status.Undecided, branches explored: 19517, max depth: 48, time spent: 300.409 seconds
+Final result of input 92: Status.Unsafe, branches explored: 1, max depth: 0, time spent: 0.238 seconds
+Final result of input 93: Status.Undecided, branches explored: 9591, max depth: 53, time spent: 300.388 seconds
+Final result of input 94: Status.Safe, branches explored: 2851, max depth: 28, time spent: 67.792 seconds
+Final result of input 95: Status.Undecided, branches explored: 8854, max depth: 54, time spent: 300.408 seconds
+Final result of input 96: Status.Undecided, branches explored: 11213, max depth: 52, time spent: 300.410 seconds
+Final result of input 97: Status.Undecided, branches explored: 11771, max depth: 73, time spent: 300.410 seconds
+Final result of input 98: Status.Undecided, branches explored: 11276, max depth: 59, time spent: 300.426 seconds
+Final result of input 99: Status.Undecided, branches explored: 13510, max depth: 51, time spent: 300.414 seconds
+
+Time spent in solver: 21528.40355539322
+Total number of images verified as safe: 21
+Safe images: [0, 5, 10, 14, 17, 25, 32, 37, 39, 40, 46, 55, 60, 70, 71, 74, 79, 82, 83, 85, 94]
+Total number of images verified as unsafe: 8
+Unsafe images: [8, 18, 33, 43, 62, 63, 73, 92]
+Total number of images timed-out: 70
+Timed-out images: [1, 2, 3, 4, 6, 7, 9, 11, 12, 13, 15, 16, 19, 20, 21, 22, 23, 24, 26, 27, 28, 29, 30, 31, 34, 35, 36, 38, 41, 42, 44, 45, 47, 48, 49, 50, 51, 52, 53, 54, 56, 57, 58, 59, 61, 64, 66, 67, 68, 69, 72, 75, 76, 77, 78, 80, 81, 84, 86, 87, 88, 89, 90, 91, 93, 95, 96, 97, 98, 99]
+Total number of images with underflow: 0
+Underflow images: []
+
