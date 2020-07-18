@@ -102,7 +102,7 @@ def main():
     Settings.ADVERSARIAL_ONNX_PATH = onnx_filename # path to .onnx file with corresponidng .onnx.pb file
     Settings.ADVERSARIAL_EPSILON = epsilon
 
-    Settings.ADVERSARIAL_FROM_ABSTRACT_VIO = True
+    Settings.ADVERSARIAL_SEED_ABSTRACT_VIO = True
 
     if epsilon == 0.05:
         # speed up splitting near root
@@ -178,6 +178,9 @@ def main():
 
             print(f"result {image_id}: {r} in {round(t, 4)} sec")
 
+            tup = res.progress_tuple
+            progress = f"{tup[0]}/{tup[0] + tup[1]} ({round(tup[2] * 100, 4)}%)"
+            print(f"progress: {progress}")
             f.write(f"net{net} (e={epsilon})\t{image_id}\t{r}\t{t}\n")
             f.flush()
 
