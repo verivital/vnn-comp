@@ -9,7 +9,7 @@ MNIST and CIFAR10 were the networks focused for this sub-category.
 General File Structure:
 -----------------------
 1. The 'results' folder contains all the results for the networks in respective dataset specific(i.e MNIST or CIFAR) folders.
-2. 'executeXX.py' (XX being the dataset name) is the main execution file while checks the verification results with a threshold time out.
+2. 'executeXX.py' (XX being the dataset name) is the main execution file which checks the verification results with a threshold time out.
 3. 'run_CNN.sh' is the top level script for running all the tests in this sub-category.
 
 NNV Installation:
