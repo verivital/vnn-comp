@@ -25,13 +25,11 @@ from [here](http://www.gurobi.com/academia/for-universities).
 We assume the user's Python environment is based on Anaconda.
 
 ```bash
-git clone --recursive https://github.com/oval-group/plnn-bab.git
-
-cd plnn-bab
+cd vnn-comp/2020/CNN/oval_framework
 
 #Create a conda environment
-conda create -n plnn-bab python=3.6
-conda activate plnn-bab
+conda create -n oval_framework python=3.6
+conda activate oval_framework
 
 # Install gurobipy 
 conda config --add channels http://conda.anaconda.org/gurobi
