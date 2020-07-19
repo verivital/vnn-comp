@@ -1,8 +1,7 @@
 Piece-Wise Linear Neural Network:
 -----------------------------
 
-This folder contains the codes and the results for the 'PWL' sub-category of **VNN-COMP 2020**
-and NNV took part in the GGN-Nets only. 
+This folder contains the codes and the results for the 'PWL' sub-category of **VNN-COMP 2020**. 
 
 ACAS Xu and MNISTNets were the networks focused for this sub-category.
 
