@@ -1,0 +1,3 @@
+SampleNumber,VerificationResult,ObjectiveValue,ObjectiveBound,MainSolveTime,TotalTime
+1,Misclassified,0,0,0,0.266585929
+2,UNSAT,NaN,-0.15458515753098864,174.73258209228516,307.681540655
