@@ -1,4 +1,4 @@
-Convolutional Neural Network:
+Piece-Wise Linear Neural Network:
 -----------------------------
 
 This folder contains the codes and the results for the 'PWL' sub-category of **VNN-COMP 2020**
