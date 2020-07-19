@@ -50,7 +50,7 @@ python setup.py install
 ### Running the benchmarks
 
 In order to replicate the plots contained in `./plots/` and/or the .csv files in `./mnist_results/csv/` and 
-`./mnist_results/csv/`, please execute the following commands:
+`./cifar_results/csv/`, please execute the following commands:
 
 ```bash
 # Run the experiments:
@@ -64,7 +64,7 @@ python scripts/bab_tools/plot_verification.py
 ### Results format
 
 On top of the plots in `./plots/`, plotting the percentage of verified properties over time, 
-we provide `.csv` files (in `./mnist_results/csv/` and `./mnist_results/csv/`) with the following format:
+we provide `.csv` files (in `./mnist_results/csv/` and `./cifar_results/csv/`) with the following format:
 
 `Idx,Eps,SAT,Branches,Time(s)` for the ETH benchmarks (MNIST and CIFAR-10). SAT=True means the network is robust.
 
