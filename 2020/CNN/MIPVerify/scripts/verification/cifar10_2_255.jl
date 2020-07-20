@@ -20,4 +20,5 @@ include("../../src/MIPVerify_patch_ggn.jl")
 #     joinpath(@__DIR__, "../../results/ggn-cnn"),
 # )
 
-# We are specifying a timeout for each benchmark here.
+# We are specifying a timeout for each benchmark here; for many samples, the pre-solve itself takes
+# > 5 minutes

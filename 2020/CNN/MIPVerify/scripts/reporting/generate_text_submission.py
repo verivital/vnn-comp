@@ -48,10 +48,10 @@ if __name__ == "__main__":
     )
     if benchmark_name == "GGN-CNN":
         name_to_params = {
-            "mnist_0.1": ("MNIST", "0.1"),
-            "mnist_0.3": ("MNIST", "0.3"),
+            # "mnist_0.1": ("MNIST", "0.1"),
+            # "mnist_0.3": ("MNIST", "0.3"),
             # "cifar10_2_255": ("CIFAR10", "2/255"),
-            # "cifar10_8_255": ("CIFAR10", "8/255"),
+            "cifar10_8_255": ("CIFAR10", "8/255"),
         }
         dfs = []
         for (name, params) in name_to_params.items():
