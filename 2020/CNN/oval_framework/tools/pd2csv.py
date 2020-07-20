@@ -15,13 +15,6 @@ def pd2csv(path, result_path, keyword):
                     temp = temp.drop(columns=key)
                 pass
             elif "SAT" in key:
-                # as our method returns SAT/UNSAT on the counter-example search, flip True/False for ETH's datasets
-                # (which, differently from ours, assume SAT is given if robust)
-                if "mnist" in keyword or "cifar10" in keyword:
-                    temp.loc[temp[key] == 'False', key] = 'true'
-                    temp.loc[temp[key] == 'True', key] = 'false'
-                    temp.loc[temp[key] == 'false', key] = 'False'
-                    temp.loc[temp[key] == 'true', key] = 'True'
                 temp = temp.rename(columns={key: "SAT"})
             elif "BBran" in key:
                 temp = temp.rename(columns={key:"Branches"})
