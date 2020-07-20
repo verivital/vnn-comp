@@ -53,7 +53,7 @@ In order to replicate the plots contained in `./plots/` and/or the .csv files in
 ```bash
 # Run the experiments:
 # NOTE: it takes more than a day to execute all the benchmarks one after the other
-python scripts/bab_tools/bab_runner.py
+python scripts/run_batched_verification.py
 
 # Generate plots and .csv files 
 python scripts/bab_tools/plot_verification.py
@@ -66,7 +66,7 @@ we provide `.csv` files (in `./mnist_results/csv/` and `./cifar_results/csv/`) w
 
 `Idx,Eps,SAT,Branches,Time(s)` for the ETH benchmarks (MNIST and CIFAR-10). SAT=True means the network is robust.
 
-`Idx,Eps,prop,BSAT_GNN_prox_100,Branches,Time(s)` for the OVAL benchmarks. SAT=False means the network is robust 
+`Idx,Eps,prop,SAT,Branches,Time(s)` for the OVAL benchmarks. SAT=False means the network is robust 
 (these properties have been formulated as adversarial vulnerability). The ground truth is False for all.
 
 ## Repository structure
