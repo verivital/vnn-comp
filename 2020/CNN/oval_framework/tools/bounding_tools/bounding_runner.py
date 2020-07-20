@@ -81,11 +81,10 @@ def run_lower_bounding():
 
             eps_temp = float(args.nn_name[6:]) if args.data == 'mnist' else float(args.nn_name.split('_')[1])/float(args.nn_name.split('_')[2])
 
-            x, model, test = load_1to1_eth(args.data, args.nn_name, idx=args.prop_idx, test=tests, eps_temp=eps_temp,
+            x, model, test, domain = load_1to1_eth(args.data, args.nn_name, idx=args.prop_idx, test=tests, eps_temp=eps_temp,
                                            max_solver_batch=args.max_solver_batch)
             # since we normalise cifar data set, it is unbounded now
             prop_idx = test
-            domain = torch.stack([x.squeeze(0) - eps_temp, x.squeeze(0) + eps_temp], dim=-1)
 
     lin_approx_string = "" if not args.define_linear_approximation else "-allbounds"
     image = args.prop_idx if args.nn_name else args.img_idx

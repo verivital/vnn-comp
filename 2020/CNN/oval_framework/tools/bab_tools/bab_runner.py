@@ -169,7 +169,7 @@ def main():
             if not os.path.exists(dom_path):
                 os.makedirs(dom_path)
         else: 
-            path = './cifar_properties/'
+            path = './batch_verification_results/'
             result_path = './cifar_results/'
 
         if not os.path.exists(result_path):
@@ -289,7 +289,7 @@ def main():
             imag_idx = new_idx
             eps_temp = float(args.nn_name[6:]) if args.data == 'mnist' else float(args.nn_name.split('_')[1])/float(args.nn_name.split('_')[2])
 
-            x, verif_layers, test = load_1to1_eth(args.data, args.nn_name, idx=imag_idx, test=tests, eps_temp=eps_temp,
+            x, verif_layers, test, domain = load_1to1_eth(args.data, args.nn_name, idx=imag_idx, test=tests, eps_temp=eps_temp,
                                                   max_solver_batch=args.max_solver_batch)
             if x is None:
                 # handle misclassified images
@@ -297,7 +297,6 @@ def main():
             # since we normalise cifar data set, it is unbounded now
             bounded = False
             prop_idx = test
-            domain = torch.stack([x.squeeze(0) - eps_temp, x.squeeze(0) + eps_temp], dim=-1)
             linear = False
 
         else:

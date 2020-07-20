@@ -394,9 +394,6 @@ def add_properties(model, true_label, lb_abs = -1000, ret_ls = False, domain=Non
 def normalize(image, dataset):
     mean, sigma = get_mean_sigma(dataset)
     return (image - mean) / sigma
-    for i in range(len(image)):
-        image[i] -= mnist_mean[i]
-        image[i] /= mnist_sigma[i]
 
 class SeqNet(nn.Module):
 
@@ -596,9 +593,20 @@ def load_1to1_eth(dataset, model, idx = None, test = None, mnist_test = None, ep
         # layers = list(model.children())
         # added_prop_layers = add_single_prop(layers, y_pred, test)
         # return x, added_prop_layers, test
-        domain = torch.stack([x.squeeze(0) - eps_temp, x.squeeze(0) + eps_temp], dim=-1)
+        if dataset == 'cifar10':
+            x_m_eps = normalize(torch.from_numpy(np.array(
+                image - eps_temp, dtype=np.float32).reshape([1, 32, 32, 3]).transpose(0, 3, 1, 2)).clamp(0,1), dataset)
+            x_p_eps = normalize(torch.from_numpy(np.array(
+                image + eps_temp, dtype=np.float32).reshape([1, 32, 32, 3]).transpose(0, 3, 1, 2)).clamp(0,1), dataset)
+        elif dataset == 'mnist':
+            x_m_eps = normalize(torch.from_numpy(
+                np.array(image - eps_temp, dtype=np.float32).reshape([1, 1, 28, 28])).clamp(0,1).float(), dataset)
+            x_p_eps = normalize(torch.from_numpy(
+                np.array(image + eps_temp, dtype=np.float32).reshape([1, 1, 28, 28])).clamp(0,1).float(), dataset)
+
+        domain = torch.stack([x_m_eps.squeeze(0), x_p_eps.squeeze(0)], dim=-1)
         added_prop_layers = add_properties(model, y, lb_abs, domain=domain, max_solver_batch=max_solver_batch)
         for layer in added_prop_layers:
             for p in layer.parameters():
                 p.requires_grad = False
-        return x, added_prop_layers, None
+        return x, added_prop_layers, None, domain
