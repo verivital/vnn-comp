@@ -588,7 +588,7 @@ def load_1to1_eth(dataset, model, idx = None, test = None, mnist_test = None, ep
     print('predicted label ', y_pred, ' correct label ', y)
     if  y_pred != y: 
         print('model prediction is incorrect for the given model')
-        return None, None, None
+        return None, None, None, None
     else:
         # layers = list(model.children())
         # added_prop_layers = add_single_prop(layers, y_pred, test)
