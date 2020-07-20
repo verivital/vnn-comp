@@ -36,4 +36,4 @@ MIPVerify.setloglevel!("info")
 println("Fraction correct of 25 samples: $(frac_correct(nn, pat676MNISTGenerator()))")
 
 main_solve_helper(nn, lp, 0.02, pat676MNISTGenerator)
-main_solve_helper(nn, interval_arithmetic, 0.05, pat676MNISTGenerator)
+main_solve_helper(nn, lp, 0.05, pat676MNISTGenerator)

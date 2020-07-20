@@ -1,3 +1,1 @@
 SampleNumber,VerificationResult,ObjectiveValue,ObjectiveBound,MainSolveTime,TotalTime
-1,Timeout,NaN,132809.79189480824,900.0092890262604,901.689235622
-2,Timeout,NaN,81523.84235730692,900.155238866806,901.713942176

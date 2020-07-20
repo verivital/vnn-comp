@@ -45,10 +45,10 @@ uuid = "96374032-68de-5a5b-8d9e-752f78720389"
 version = "0.8.0"
 
 [[CSV]]
-deps = ["CategoricalArrays", "DataFrames", "Dates", "FilePathsBase", "Mmap", "Parsers", "PooledArrays", "Tables", "Unicode", "WeakRefStrings"]
-git-tree-sha1 = "52a8e60c7822f53d57e4403b7f2811e7e1bdd32b"
+deps = ["CategoricalArrays", "DataFrames", "Dates", "Mmap", "Parsers", "PooledArrays", "SentinelArrays", "Tables", "Unicode"]
+git-tree-sha1 = "f095e44feec53d0ae809714a78c25908d1f370e6"
 uuid = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
-version = "0.6.2"
+version = "0.7.4"
 
 [[Calculus]]
 deps = ["LinearAlgebra"]
@@ -172,12 +172,6 @@ git-tree-sha1 = "224175e213fd4fe112db3eea05d66b308dc2bf6b"
 uuid = "fa42c844-2597-5d31-933b-ebd51ab2693f"
 version = "0.2.0"
 
-[[FilePathsBase]]
-deps = ["Dates", "LinearAlgebra", "Printf", "Test", "UUIDs"]
-git-tree-sha1 = "923fd3b942a11712435682eaa95cc8518c428b2c"
-uuid = "48062228-2e41-5def-b9a4-89aafe57970f"
-version = "0.8.0"
-
 [[ForwardDiff]]
 deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "NaNMath", "Random", "SpecialFunctions", "StaticArrays"]
 git-tree-sha1 = "1d090099fb82223abc48f7ce176d3f7696ede36d"
@@ -291,9 +285,9 @@ version = "0.8.0"
 
 [[MIPVerify]]
 deps = ["AutoHashEquals", "CSV", "ConditionalJuMP", "DataFrames", "Dates", "DelimitedFiles", "DocStringExtensions", "JuMP", "MAT", "MathProgBase", "Memento", "ProgressMeter", "Serialization"]
-git-tree-sha1 = "9fbe936ceba675c82c5d4076a061f1b683d4b774"
+git-tree-sha1 = "10bbfbba7a59ff52f45e9c48b8d3583e5622eb0c"
 uuid = "e5e5f8be-2a6a-5994-adbb-5afbd0e30425"
-version = "0.2.2"
+version = "0.2.3"
 
 [[MacroTools]]
 deps = ["Markdown", "Random"]
@@ -436,6 +430,12 @@ version = "0.2.1"
 [[SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 
+[[SentinelArrays]]
+deps = ["Dates", "Random"]
+git-tree-sha1 = "cd9dccb026262a46d5a81ef1ce1e595150b2b8d2"
+uuid = "91c51154-3ec4-41a3-a24f-3f23e20d615c"
+version = "1.2.9"
+
 [[Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 
@@ -518,12 +518,6 @@ uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 
 [[Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
-
-[[WeakRefStrings]]
-deps = ["DataAPI", "Random", "Test"]
-git-tree-sha1 = "28807f85197eaad3cbd2330386fac1dcb9e7e11d"
-uuid = "ea10d353-3f73-51f8-a26c-33c1cb351aa5"
-version = "0.6.2"
 
 [[XML2_jll]]
 deps = ["Libdl", "Libiconv_jll", "Pkg", "Zlib_jll"]
