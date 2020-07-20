@@ -64,10 +64,9 @@ python scripts/bab_tools/plot_verification.py
 On top of the plots in `./plots/`, plotting the percentage of verified properties over time, 
 we provide `.csv` files (in `./mnist_results/csv/` and `./cifar_results/csv/`) with the following format:
 
-`Idx,Eps,SAT,Branches,Time(s)` for the ETH benchmarks (MNIST and CIFAR-10). SAT=True means the network is robust.
+`Idx,Eps,SAT,Branches,Time(s)` for the ETH benchmarks (MNIST and CIFAR-10). SAT=False means the network is robust.
 
 `Idx,Eps,prop,SAT,Branches,Time(s)` for the OVAL benchmarks. SAT=False means the network is robust 
-(these properties have been formulated as adversarial vulnerability). The ground truth is False for all.
 
 ## Repository structure
 * `./plnn/` contains the code for the ReLU Branch and Bound framework.
