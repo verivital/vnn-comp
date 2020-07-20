@@ -11,7 +11,6 @@ from torch.nn import functional as F
 from plnn.modules import Flatten
 from plnn.proxlp_solver.utils import LinearOp, ConvOp, BatchConvOp, BatchLinearOp
 import random
-import logger
 
 '''
 Training test file for the deep model transferrability studies
