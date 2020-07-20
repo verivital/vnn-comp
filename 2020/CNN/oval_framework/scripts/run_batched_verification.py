@@ -55,10 +55,8 @@ def run_bab_exp(gpu_id, cpus, timeout, pdprops, nn, method, data, branching=None
             batch_size = 100
         if method == "prox":
             alg_specs = "--tot_iter 100"
-            if "mnist" in nn:
+            if "cifar10" in nn:
                 alg_specs += " --eta 1e1 --feta 1e1"
-            elif "cifar10" in nn:
-                alg_specs += " --eta 1e0 --feta 1e0"
             else:
                 alg_specs += " --eta 1e2 --feta 1e2"
         elif method == "adam":
@@ -77,8 +75,10 @@ def run_bab_exp(gpu_id, cpus, timeout, pdprops, nn, method, data, branching=None
             else:
                 alg_specs += " --init_step 1e-3 --fin_step 1e-4"
 
-    if nn in ["cifar_base_kw", "mnist_0.1", "mnist_0.3"]:
+    if nn in ["cifar_base_kw"]:
         max_solver_batch = 25000
+    elif nn in ["mnist_0.1", "mnist_0.3"]:
+        max_solver_batch = 12000
     elif nn in ['cifar_wide_kw', 'cifar_deep_kw']:
         # the plots were run with 18000 but let's stay on the safe side.
         max_solver_batch = 17000
@@ -199,7 +199,7 @@ def run_vnn_results():
 
     ## mnist-eth
     data = "mnist"
-    method = "prox"
+    method = "adam"
     nns = ["mnist_0.1", "mnist_0.3"]
     pdprops = None
     timeout = 300
@@ -208,7 +208,7 @@ def run_vnn_results():
 
     # cifar-eth
     data = "cifar10"
-    method = "adam"
+    method = "prox"
     nns = ["cifar10_2_255", "cifar10_8_255"]
     pdprops = None
     timeout = 300
