@@ -106,9 +106,9 @@ if __name__ == "__main__":
     # images = list(range(100)) # all 100 images for workshop
 
     # cifar-eth
-    data = "cifar10"
-    net = "cifar10_8_255"  # cifar10_8_255 or cifar10_2_255
-    pdprops = None
+    # data = "cifar10"
+    # net = "cifar10_8_255"  # cifar10_8_255 or cifar10_2_255
+    # pdprops = None
     if data == 'cifar10':
         with open(f"./data/correct-{net}.txt", "r") as file:
             line = file.readline()
@@ -117,14 +117,5 @@ if __name__ == "__main__":
         run_complete_verif_nets(gpu_id, cpus, iters, define_linear_approximation, net, pdprops, images, adam_algorithms, prox_algorithms, data)
 
     # read images from file
-    try:
-        with open(f"./data/undecided-{data}-eps{net[6:]}.txt", "r") as file:
-            line = file.readline()
-        images = line.split(", ")[:-1]
-        images = [int(img) for img in images]
-        if len(images) > 5:
-            images = images[:5]
-
-        run_complete_verif_nets(gpu_id, cpus, iters, define_linear_approximation, net, pdprops, images, adam_algorithms, prox_algorithms, data)
-    except FileNotFoundError:
-        print("No undecided images for the dataset.")
+    images = [15, 19, 36]
+    run_complete_verif_nets(gpu_id, cpus, iters, define_linear_approximation, net, pdprops, images, adam_algorithms, prox_algorithms, data)

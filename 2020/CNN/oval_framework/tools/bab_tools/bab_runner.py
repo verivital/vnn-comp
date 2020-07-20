@@ -169,7 +169,7 @@ def main():
             if not os.path.exists(dom_path):
                 os.makedirs(dom_path)
         else: 
-            path = './cifar_properties/'
+            path = './batch_verification_results/'
             result_path = './cifar_results/'
 
         if not os.path.exists(result_path):
