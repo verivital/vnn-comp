@@ -1,0 +1,151 @@
+model,image,radius,result,time
+mnist-net_256x2.onnx,image1,0.02,NOT Satis,   0.6763
+mnist-net_256x2.onnx,image2,0.02,Satisfied,   0.0942
+mnist-net_256x2.onnx,image3,0.02,NOT Satis,   0.8931
+mnist-net_256x2.onnx,image4,0.02,Satisfied,   0.6114
+mnist-net_256x2.onnx,image5,0.02,NOT Satis,   0.6439
+mnist-net_256x2.onnx,image6,0.02,Satisfied,   0.6173
+mnist-net_256x2.onnx,image7,0.02,Satisfied,   0.9136
+mnist-net_256x2.onnx,image8,0.02,Satisfied,   1.2727
+mnist-net_256x2.onnx,image9,0.02,NOT Satis,   0.6444
+mnist-net_256x2.onnx,image10,0.02,Satisfied,   0.1165
+mnist-net_256x2.onnx,image11,0.02,Satisfied,   0.1443
+mnist-net_256x2.onnx,image12,0.02,Satisfied,   0.1524
+mnist-net_256x2.onnx,image13,0.02,Satisfied,   0.1214
+mnist-net_256x2.onnx,image14,0.02,Satisfied,   0.1595
+mnist-net_256x2.onnx,image15,0.02,Satisfied,   0.1205
+mnist-net_256x2.onnx,image16,0.02,Satisfied,   0.5822
+mnist-net_256x2.onnx,image17,0.02,Satisfied,   0.5444
+mnist-net_256x2.onnx,image18,0.02,Satisfied,   0.6259
+mnist-net_256x2.onnx,image19,0.02,NOT Satis,   0.6532
+mnist-net_256x2.onnx,image20,0.02,Satisfied,   0.6598
+mnist-net_256x2.onnx,image21,0.02,Satisfied,   0.6084
+mnist-net_256x2.onnx,image22,0.02,Satisfied,   1.1526
+mnist-net_256x2.onnx,image23,0.02,Satisfied,   0.1301
+mnist-net_256x2.onnx,image24,0.02,Satisfied,   0.1343
+mnist-net_256x2.onnx,image25,0.02,NOT Satis,   0.8369
+mnist-net_256x2.onnx,image1,0.05,NOT Satis,   1.7318
+mnist-net_256x2.onnx,image2,0.05,NOT Satis,   0.7860
+mnist-net_256x2.onnx,image3,0.05,NOT Satis,  28.5967
+mnist-net_256x2.onnx,image4,0.05,NOT Satis,   5.3100
+mnist-net_256x2.onnx,image5,0.05,NOT Satis,   1.4212
+mnist-net_256x2.onnx,image6,0.05,NOT Satis,   1.2294
+mnist-net_256x2.onnx,image7,0.05,NOT Satis,   1.4644
+mnist-net_256x2.onnx,image8,0.05,NOT Satis,   1.6335
+mnist-net_256x2.onnx,image9,0.05,NOT Satis,   1.3429
+mnist-net_256x2.onnx,image10,0.05,NOT Satis,   1.1098
+mnist-net_256x2.onnx,image11,0.05,Satisfied,   1.2109
+mnist-net_256x2.onnx,image12,0.05,NOT Satis,   0.9073
+mnist-net_256x2.onnx,image13,0.05,NOT Satis,   1.5871
+mnist-net_256x2.onnx,image14,0.05,NOT Satis,   5.7134
+mnist-net_256x2.onnx,image15,0.05,NOT Satis,   4.6201
+mnist-net_256x2.onnx,image16,0.05,Satisfied,  13.4976
+mnist-net_256x2.onnx,image17,0.05,NOT Satis,   2.2613
+mnist-net_256x2.onnx,image18,0.05,NOT Satis,   1.5126
+mnist-net_256x2.onnx,image19,0.05,NOT Satis,   0.9062
+mnist-net_256x2.onnx,image20,0.05,NOT Satis,   1.7954
+mnist-net_256x2.onnx,image21,0.05,NOT Satis,   1.5534
+mnist-net_256x2.onnx,image22,0.05,NOT Satis,   1.6605
+mnist-net_256x2.onnx,image23,0.05,Satisfied,   3.5744
+mnist-net_256x2.onnx,image24,0.05,NOT Satis,   1.1987
+mnist-net_256x2.onnx,image25,0.05,NOT Satis,   1.9133
+mnist-net_256x4.onnx,image1,0.02,Satisfied,   0.1892
+mnist-net_256x4.onnx,image2,0.02,Satisfied,   0.1567
+mnist-net_256x4.onnx,image3,0.02,Satisfied, 382.9116
+mnist-net_256x4.onnx,image4,0.02,Satisfied,   0.2179
+mnist-net_256x4.onnx,image5,0.02,Satisfied,   0.2109
+mnist-net_256x4.onnx,image6,0.02,Satisfied,   1.8719
+mnist-net_256x4.onnx,image7,0.02,Satisfied,   0.2154
+mnist-net_256x4.onnx,image8,0.02,Timed Out, 900.1001
+mnist-net_256x4.onnx,image9,0.02,Satisfied,   1.3638
+mnist-net_256x4.onnx,image10,0.02,Satisfied,   0.1979
+mnist-net_256x4.onnx,image11,0.02,Satisfied,   0.9395
+mnist-net_256x4.onnx,image12,0.02,Satisfied,   0.2330
+mnist-net_256x4.onnx,image13,0.02,Satisfied,   0.2894
+mnist-net_256x4.onnx,image14,0.02,Satisfied,   0.2328
+mnist-net_256x4.onnx,image15,0.02,Satisfied,   0.8821
+mnist-net_256x4.onnx,image16,0.02,Satisfied,   0.2430
+mnist-net_256x4.onnx,image17,0.02,Satisfied,   2.3690
+mnist-net_256x4.onnx,image18,0.02,Satisfied,   0.2030
+mnist-net_256x4.onnx,image19,0.02,NOT Satis,   9.3594
+mnist-net_256x4.onnx,image20,0.02,Satisfied,   0.9376
+mnist-net_256x4.onnx,image21,0.02,Satisfied,  84.4196
+mnist-net_256x4.onnx,image22,0.02,Satisfied,   1.0877
+mnist-net_256x4.onnx,image23,0.02,Satisfied,   0.2801
+mnist-net_256x4.onnx,image24,0.02,Satisfied,   0.2623
+mnist-net_256x4.onnx,image25,0.02,Satisfied,   3.3996
+mnist-net_256x4.onnx,image1,0.05,Timed Out, 900.0995
+mnist-net_256x4.onnx,image2,0.05,Timed Out, 900.0998
+mnist-net_256x4.onnx,image3,0.05,Timed Out, 900.0988
+mnist-net_256x4.onnx,image4,0.05,Timed Out, 900.0987
+mnist-net_256x4.onnx,image5,0.05,Timed Out, 900.0989
+mnist-net_256x4.onnx,image6,0.05,Timed Out, 900.0979
+mnist-net_256x4.onnx,image7,0.05,Timed Out, 900.0991
+mnist-net_256x4.onnx,image8,0.05,NOT Satis, 273.5101
+mnist-net_256x4.onnx,image9,0.05,Timed Out, 900.0981
+mnist-net_256x4.onnx,image10,0.05,Timed Out, 900.0995
+mnist-net_256x4.onnx,image11,0.05,Timed Out, 900.0974
+mnist-net_256x4.onnx,image12,0.05,Timed Out, 900.1006
+mnist-net_256x4.onnx,image13,0.05,Timed Out, 900.0972
+mnist-net_256x4.onnx,image14,0.05,Timed Out, 900.0983
+mnist-net_256x4.onnx,image15,0.05,Timed Out, 900.0970
+mnist-net_256x4.onnx,image16,0.05,Timed Out, 900.0968
+mnist-net_256x4.onnx,image17,0.05,Timed Out, 900.0993
+mnist-net_256x4.onnx,image18,0.05,Timed Out, 900.0971
+mnist-net_256x4.onnx,image19,0.05,NOT Satis,  70.9781
+mnist-net_256x4.onnx,image20,0.05,Timed Out, 900.0972
+mnist-net_256x4.onnx,image21,0.05,Timed Out, 900.0990
+mnist-net_256x4.onnx,image22,0.05,Timed Out, 900.0987
+mnist-net_256x4.onnx,image23,0.05,Timed Out, 900.0972
+mnist-net_256x4.onnx,image24,0.05,Timed Out, 900.0982
+mnist-net_256x4.onnx,image25,0.05,Timed Out, 900.0979
+mnist-net_256x6.onnx,image1,0.02,Timed Out, 900.0970
+mnist-net_256x6.onnx,image2,0.02,Satisfied,   1.2060
+mnist-net_256x6.onnx,image3,0.02,Timed Out, 900.0975
+mnist-net_256x6.onnx,image4,0.02,Satisfied,  78.1257
+mnist-net_256x6.onnx,image5,0.02,Satisfied, 419.6577
+mnist-net_256x6.onnx,image6,0.02,Timed Out, 900.0995
+mnist-net_256x6.onnx,image7,0.02,Timed Out, 900.0979
+mnist-net_256x6.onnx,image8,0.02,Timed Out, 900.0986
+mnist-net_256x6.onnx,image9,0.02,NOT Satis,   5.1873
+mnist-net_256x6.onnx,image10,0.02,Satisfied, 423.9555
+mnist-net_256x6.onnx,image11,0.02,Satisfied, 107.5664
+mnist-net_256x6.onnx,image12,0.02,Timed Out, 900.0994
+mnist-net_256x6.onnx,image13,0.02,Timed Out, 900.1008
+mnist-net_256x6.onnx,image14,0.02,Timed Out, 900.0894
+mnist-net_256x6.onnx,image15,0.02,Timed Out, 900.0994
+mnist-net_256x6.onnx,image16,0.02,Satisfied, 683.2714
+mnist-net_256x6.onnx,image17,0.02,Timed Out, 900.0988
+mnist-net_256x6.onnx,image18,0.02,Timed Out, 900.0982
+mnist-net_256x6.onnx,image19,0.02,Timed Out, 900.0998
+mnist-net_256x6.onnx,image20,0.02,Satisfied, 364.6946
+mnist-net_256x6.onnx,image21,0.02,Timed Out, 900.0983
+mnist-net_256x6.onnx,image22,0.02,Timed Out, 900.0975
+mnist-net_256x6.onnx,image23,0.02,Satisfied, 245.8606
+mnist-net_256x6.onnx,image24,0.02,Satisfied, 257.9130
+mnist-net_256x6.onnx,image25,0.02,Timed Out, 900.0981
+mnist-net_256x6.onnx,image1,0.05,Timed Out, 900.0964
+mnist-net_256x6.onnx,image2,0.05,Timed Out, 900.0985
+mnist-net_256x6.onnx,image3,0.05,Timed Out, 900.0969
+mnist-net_256x6.onnx,image4,0.05,Timed Out, 900.0993
+mnist-net_256x6.onnx,image5,0.05,Timed Out, 900.0991
+mnist-net_256x6.onnx,image6,0.05,Timed Out, 900.0992
+mnist-net_256x6.onnx,image7,0.05,Timed Out, 900.0991
+mnist-net_256x6.onnx,image8,0.05,Timed Out, 900.0969
+mnist-net_256x6.onnx,image9,0.05,NOT Satis, 201.7524
+mnist-net_256x6.onnx,image10,0.05,Timed Out, 900.0980
+mnist-net_256x6.onnx,image11,0.05,Timed Out, 900.0991
+mnist-net_256x6.onnx,image12,0.05,Timed Out, 900.0964
+mnist-net_256x6.onnx,image13,0.05,Timed Out, 900.0994
+mnist-net_256x6.onnx,image14,0.05,Timed Out, 900.0972
+mnist-net_256x6.onnx,image15,0.05,Timed Out, 900.0965
+mnist-net_256x6.onnx,image16,0.05,Timed Out, 900.0999
+mnist-net_256x6.onnx,image17,0.05,Timed Out, 900.0985
+mnist-net_256x6.onnx,image18,0.05,Timed Out, 900.0998
+mnist-net_256x6.onnx,image19,0.05,NOT Satis,  16.6724
+mnist-net_256x6.onnx,image20,0.05,Timed Out, 900.0985
+mnist-net_256x6.onnx,image21,0.05,Timed Out, 900.1005
+mnist-net_256x6.onnx,image22,0.05,Timed Out, 900.0997
+mnist-net_256x6.onnx,image23,0.05,Timed Out, 900.0967
+mnist-net_256x6.onnx,image24,0.05,Timed Out, 900.0998
+mnist-net_256x6.onnx,image25,0.05,Timed Out, 900.0972
