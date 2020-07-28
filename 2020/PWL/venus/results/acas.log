@@ -1,0 +1,188 @@
+model,property,result,time
+acas_1_1.h5,Property 1,Satisfied,   1.3247
+acas_1_2.h5,Property 1,Satisfied,   3.0031
+acas_1_3.h5,Property 1,Satisfied,  22.7332
+acas_1_4.h5,Property 1,Satisfied,  17.8571
+acas_1_5.h5,Property 1,Satisfied,   2.2596
+acas_1_6.h5,Property 1,Satisfied,   2.0384
+acas_1_7.h5,Property 1,Satisfied,   1.0655
+acas_1_8.h5,Property 1,Satisfied,   0.5524
+acas_1_9.h5,Property 1,Satisfied,   0.4649
+acas_2_1.h5,Property 1,Satisfied,  11.3553
+acas_2_2.h5,Property 1,Satisfied,  24.3402
+acas_2_3.h5,Property 1,Satisfied,  27.6070
+acas_2_4.h5,Property 1,Satisfied,   6.8351
+acas_2_5.h5,Property 1,Satisfied,  24.6372
+acas_2_6.h5,Property 1,Satisfied,  74.3739
+acas_2_7.h5,Property 1,Satisfied, 193.7015
+acas_2_8.h5,Property 1,Satisfied, 186.4537
+acas_2_9.h5,Property 1,Satisfied, 160.3202
+acas_3_1.h5,Property 1,Satisfied,   7.6354
+acas_3_2.h5,Property 1,Satisfied,  10.4362
+acas_3_3.h5,Property 1,Satisfied,   6.9300
+acas_3_4.h5,Property 1,Satisfied,   6.5462
+acas_3_5.h5,Property 1,Satisfied,  12.2083
+acas_3_6.h5,Property 1,Satisfied, 263.5584
+acas_3_7.h5,Property 1,Satisfied, 124.2182
+acas_3_8.h5,Property 1,Satisfied, 122.7229
+acas_3_9.h5,Property 1,Satisfied, 197.1078
+acas_4_1.h5,Property 1,Satisfied,  82.5623
+acas_4_2.h5,Property 1,Satisfied,  21.3695
+acas_4_3.h5,Property 1,Satisfied,  13.2270
+acas_4_4.h5,Property 1,Satisfied,   7.5859
+acas_4_5.h5,Property 1,Satisfied,  80.9499
+acas_4_6.h5,Property 1,Satisfied, 179.1977
+acas_4_7.h5,Property 1,Timed Out, 300.0012
+acas_4_8.h5,Property 1,Timed Out, 300.0006
+acas_4_9.h5,Property 1,Timed Out, 300.0013
+acas_5_1.h5,Property 1,Satisfied,   5.6679
+acas_5_2.h5,Property 1,Satisfied,  10.4220
+acas_5_3.h5,Property 1,Satisfied,   3.5177
+acas_5_4.h5,Property 1,Satisfied,   8.8667
+acas_5_5.h5,Property 1,Satisfied,  29.4601
+acas_5_6.h5,Property 1,Timed Out, 300.0006
+acas_5_7.h5,Property 1,Satisfied, 130.3863
+acas_5_8.h5,Property 1,Timed Out, 300.0010
+acas_5_9.h5,Property 1,Satisfied, 120.1959
+acas_1_1.h5,Property 2,Satisfied,  27.1972
+acas_1_2.h5,Property 2,NOT Satis,   2.8952
+acas_1_3.h5,Property 2,NOT Satis,   1.1642
+acas_1_4.h5,Property 2,NOT Satis,  27.2139
+acas_1_5.h5,Property 2,NOT Satis,  81.9917
+acas_1_6.h5,Property 2,NOT Satis,   1.4440
+acas_1_7.h5,Property 2,Satisfied,  72.1419
+acas_1_8.h5,Property 2,Satisfied, 180.8819
+acas_1_9.h5,Property 2,Satisfied,  73.9451
+acas_2_1.h5,Property 2,NOT Satis,  13.7863
+acas_2_2.h5,Property 2,NOT Satis,   0.7872
+acas_2_3.h5,Property 2,NOT Satis,   1.4414
+acas_2_4.h5,Property 2,NOT Satis,   0.5696
+acas_2_5.h5,Property 2,NOT Satis,   0.7764
+acas_2_6.h5,Property 2,NOT Satis,   0.9515
+acas_2_7.h5,Property 2,NOT Satis,   0.5706
+acas_2_8.h5,Property 2,NOT Satis,   0.7667
+acas_2_9.h5,Property 2,NOT Satis,   0.9835
+acas_3_1.h5,Property 2,NOT Satis,   0.5651
+acas_3_2.h5,Property 2,NOT Satis,   0.8208
+acas_3_3.h5,Property 2,Satisfied, 294.6645
+acas_3_4.h5,Property 2,NOT Satis,   6.6045
+acas_3_5.h5,Property 2,NOT Satis,   2.4912
+acas_3_6.h5,Property 2,NOT Satis,   0.8525
+acas_3_7.h5,Property 2,NOT Satis,   1.2192
+acas_3_8.h5,Property 2,NOT Satis,   1.5553
+acas_3_9.h5,Property 2,NOT Satis,   2.1690
+acas_4_1.h5,Property 2,NOT Satis,  81.6643
+acas_4_2.h5,Property 2,Timed Out, 300.0016
+acas_4_3.h5,Property 2,NOT Satis,   0.7297
+acas_4_4.h5,Property 2,NOT Satis,   0.5017
+acas_4_5.h5,Property 2,NOT Satis,   2.1352
+acas_4_6.h5,Property 2,NOT Satis,   1.3133
+acas_4_7.h5,Property 2,NOT Satis,   0.7139
+acas_4_8.h5,Property 2,NOT Satis,  72.9959
+acas_4_9.h5,Property 2,Timed Out, 300.0007
+acas_5_1.h5,Property 2,NOT Satis,  11.8092
+acas_5_2.h5,Property 2,NOT Satis,   0.7482
+acas_5_3.h5,Property 2,NOT Satis,   9.9463
+acas_5_4.h5,Property 2,NOT Satis,   1.0240
+acas_5_5.h5,Property 2,NOT Satis,   0.6529
+acas_5_6.h5,Property 2,NOT Satis,   0.7417
+acas_5_7.h5,Property 2,NOT Satis,   1.0528
+acas_5_8.h5,Property 2,NOT Satis,   0.7216
+acas_5_9.h5,Property 2,NOT Satis,   0.6867
+acas_1_1.h5,Property 3,Satisfied,  69.5189
+acas_1_2.h5,Property 3,Satisfied,   6.8715
+acas_1_3.h5,Property 3,Satisfied,  36.9158
+acas_1_4.h5,Property 3,Satisfied,   2.4706
+acas_1_5.h5,Property 3,Satisfied,   1.2104
+acas_1_6.h5,Property 3,Satisfied,   0.8027
+acas_1_7.h5,Property 3,NOT Satis,   0.2002
+acas_1_8.h5,Property 3,NOT Satis,   0.0825
+acas_1_9.h5,Property 3,NOT Satis,   0.2024
+acas_2_1.h5,Property 3,Satisfied,   5.8678
+acas_2_2.h5,Property 3,Satisfied,  10.3932
+acas_2_3.h5,Property 3,Satisfied,  11.5876
+acas_2_4.h5,Property 3,Satisfied,   0.4240
+acas_2_5.h5,Property 3,Satisfied,   0.6213
+acas_2_6.h5,Property 3,Satisfied,   0.7571
+acas_2_7.h5,Property 3,Satisfied,   0.7961
+acas_2_8.h5,Property 3,Satisfied,   0.7299
+acas_2_9.h5,Property 3,Satisfied,   0.1790
+acas_3_1.h5,Property 3,Satisfied,   6.3277
+acas_3_2.h5,Property 3,Satisfied,   4.9271
+acas_3_3.h5,Property 3,Satisfied,   2.6984
+acas_3_4.h5,Property 3,Satisfied,   1.5176
+acas_3_5.h5,Property 3,Satisfied,   0.3851
+acas_3_6.h5,Property 3,Satisfied,   3.3437
+acas_3_7.h5,Property 3,Satisfied,   0.2247
+acas_3_8.h5,Property 3,Satisfied,   0.6627
+acas_3_9.h5,Property 3,Satisfied,   0.4038
+acas_4_1.h5,Property 3,Satisfied,   3.7083
+acas_4_2.h5,Property 3,Satisfied,  24.0707
+acas_4_3.h5,Property 3,Satisfied,   8.1420
+acas_4_4.h5,Property 3,Satisfied,   0.3862
+acas_4_5.h5,Property 3,Satisfied,   0.3705
+acas_4_6.h5,Property 3,Satisfied,   1.9483
+acas_4_7.h5,Property 3,Satisfied,   1.2617
+acas_4_8.h5,Property 3,Satisfied,   1.4962
+acas_4_9.h5,Property 3,Satisfied,   1.6037
+acas_5_1.h5,Property 3,Satisfied,  27.1717
+acas_5_2.h5,Property 3,Satisfied,   0.5656
+acas_5_3.h5,Property 3,Satisfied,   1.3686
+acas_5_4.h5,Property 3,Satisfied,   0.7323
+acas_5_5.h5,Property 3,Satisfied,   0.8580
+acas_5_6.h5,Property 3,Satisfied,   1.7640
+acas_5_7.h5,Property 3,Satisfied,   0.3275
+acas_5_8.h5,Property 3,Satisfied,   0.8133
+acas_5_9.h5,Property 3,Satisfied,   0.3289
+acas_1_1.h5,Property 4,Satisfied, 118.2684
+acas_1_2.h5,Property 4,Satisfied,  95.3662
+acas_1_3.h5,Property 4,Satisfied, 140.0388
+acas_1_4.h5,Property 4,Satisfied,  70.2887
+acas_1_5.h5,Property 4,Satisfied,  57.3891
+acas_1_6.h5,Property 4,Satisfied,  24.6070
+acas_1_7.h5,Property 4,NOT Satis,   0.2982
+acas_1_8.h5,Property 4,NOT Satis,   0.4168
+acas_1_9.h5,Property 4,NOT Satis,   0.2737
+acas_2_1.h5,Property 4,Satisfied,  64.4088
+acas_2_2.h5,Property 4,Timed Out, 300.0007
+acas_2_3.h5,Property 4,Satisfied,  25.7678
+acas_2_4.h5,Property 4,Satisfied,  21.8438
+acas_2_5.h5,Property 4,Satisfied,  17.2698
+acas_2_6.h5,Property 4,Satisfied,  84.1039
+acas_2_7.h5,Property 4,Satisfied,  23.6175
+acas_2_8.h5,Property 4,Satisfied,  66.7318
+acas_2_9.h5,Property 4,Satisfied,  12.6960
+acas_3_1.h5,Property 4,Satisfied, 114.6116
+acas_3_2.h5,Property 4,Satisfied,  65.5603
+acas_3_3.h5,Property 4,Satisfied,  19.0435
+acas_3_4.h5,Property 4,Satisfied,   6.6118
+acas_3_5.h5,Property 4,Satisfied,  35.7937
+acas_3_6.h5,Property 4,Satisfied, 143.9535
+acas_3_7.h5,Property 4,Satisfied,  23.9802
+acas_3_8.h5,Property 4,Satisfied,  20.1341
+acas_3_9.h5,Property 4,Satisfied,  25.6954
+acas_4_1.h5,Property 4,Satisfied,  49.3583
+acas_4_2.h5,Property 4,Satisfied, 139.3184
+acas_4_3.h5,Property 4,Satisfied,  48.9680
+acas_4_4.h5,Property 4,Satisfied,  27.5058
+acas_4_5.h5,Property 4,Satisfied,  43.1967
+acas_4_6.h5,Property 4,Satisfied,  36.7791
+acas_4_7.h5,Property 4,Satisfied,  48.3904
+acas_4_8.h5,Property 4,Satisfied, 100.7989
+acas_4_9.h5,Property 4,Satisfied,  41.7873
+acas_5_1.h5,Property 4,Satisfied, 167.8981
+acas_5_2.h5,Property 4,Satisfied,  18.8389
+acas_5_3.h5,Property 4,Satisfied,  40.8706
+acas_5_4.h5,Property 4,Satisfied,  10.3735
+acas_5_5.h5,Property 4,Satisfied,  31.4331
+acas_5_6.h5,Property 4,Satisfied,  25.9952
+acas_5_7.h5,Property 4,Satisfied,  73.3412
+acas_5_8.h5,Property 4,Satisfied,  65.6536
+acas_5_9.h5,Property 4,Satisfied,  39.0640
+acas_1_1.h5,Property 5,Timed Out, 300.0005
+acas_1_1.h5,Property 6a,Timed Out, 300.0007
+acas_1_1.h5,Property 6b,Timed Out, 300.0010
+acas_1_9.h5,Property 7,Timed Out, 300.0006
+acas_2_9.h5,Property 8,NOT Satis,   0.7352
+acas_3_3.h5,Property 9,Timed Out, 300.0014
+acas_4_5.h5,Property 10,Satisfied, 130.6367

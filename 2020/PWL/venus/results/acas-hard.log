@@ -1,0 +1,11 @@
+model,property,result,time
+acas_4_6.h5,Property 1,Satisfied, 179.9815
+acas_4_8.h5,Property 1,Satisfied, 372.1116
+acas_3_3.h5,Property 2,Satisfied, 294.5314
+acas_4_2.h5,Property 2,Satisfied, 648.5705
+acas_4_9.h5,Property 2,NOT Satis, 446.1350
+acas_5_3.h5,Property 2,NOT Satis,   9.6322
+acas_3_6.h5,Property 3,Satisfied,   3.3650
+acas_5_1.h5,Property 3,Satisfied,  27.1318
+acas_1_9.h5,Property 7,NOT Satis,8010.4904
+acas_3_3.h5,Property 9,Satisfied,1795.1703
