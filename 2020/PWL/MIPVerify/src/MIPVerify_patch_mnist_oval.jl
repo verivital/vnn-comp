@@ -3,10 +3,11 @@ using DelimitedFiles
 using CSV
 using DataFrames
 using JuMP
+using Memento
 
 MNIST_OVAL_RESOURCE_DIR = "../../benchmark/mnist/oval"
 RESULT_OUTPUT_DIR = "../results/mnist-oval"
-TIMEOUT = 15*60
+TIMEOUT = 15 * 60
 
 function get_matrix_params(
     param_dict::Dict{String},
@@ -104,10 +105,7 @@ function process_solve_status(r::Dict)
     end
 end
 
-function generate_csv_summary_line(
-    sample_number::Integer,
-    r::Dict,
-)
+function generate_csv_summary_line(sample_number::Integer, r::Dict)
     [
         sample_number,
         process_solve_status(r),
@@ -118,18 +116,8 @@ function generate_csv_summary_line(
     ] .|> string
 end
 
-function generate_csv_summary_line_optimal(
-    sample_number::Integer,
-    r::Dict,
-)
-    [
-        sample_number,
-        :SAT,
-        0,
-        0,
-        0,
-        r[:TotalTime],
-    ] .|> string
+function generate_csv_summary_line_optimal(sample_number::Integer, r::Dict)
+    [sample_number, :SAT, 0, 0, 0, r[:TotalTime]] .|> string
 end
 
 function read_csv_line(path, type)
@@ -138,9 +126,9 @@ function read_csv_line(path, type)
     end
 
     readdlm(
-        IOBuffer(chop(s, tail=1)),  # remove trailing comma
+        IOBuffer(chop(s, tail = 1)),  # remove trailing comma
         ',',
-        type
+        type,
     )
 end
 
@@ -152,7 +140,7 @@ Base.@kwdef struct pat676MNISTGenerator
     length::Int = 25
 end
 
-function Base.iterate(iter::pat676MNISTGenerator, state=0)
+function Base.iterate(iter::pat676MNISTGenerator, state = 0)
     count = state
 
     if count >= iter.length
@@ -160,11 +148,11 @@ function Base.iterate(iter::pat676MNISTGenerator, state=0)
     end
 
     sample_number = state + 1
-    image = read_csv_line("$(iter.image_folder)/image$sample_number", Int)[:]/255
+    image = read_csv_line("$(iter.image_folder)/image$sample_number", Int)[:] / 255
     # image = transpose(reshape(read_csv_line("$(iter.image_folder)/image$sample_number", Int), (28, 28)))[:]/255
     label = read_csv_line(iter.labels_file, Int)[sample_number] + 1
 
-    return ((image, label), count+1)
+    return ((image, label), count + 1)
 end
 
 Base.length(iter::pat676MNISTGenerator) = iter.length
@@ -181,16 +169,18 @@ function frac_correct(nn, generator)
 end
 
 function main_solve_helper(nn, ta, eps, generator)
-    main_solver = GurobiSolver(Gurobi.Env(), BestObjStop=0, BestBdStop=0, TimeLimit=TIMEOUT)
+    main_solver =
+        GurobiSolver(Gurobi.Env(), BestObjStop = 0, BestBdStop = 0, TimeLimit = TIMEOUT)
     pp = MIPVerify.LInfNormBoundedPerturbationFamily(eps)
-    norm_order=Inf
-    rebuild=true
-    tightening_algorithm=ta
-    tightening_solver = GurobiSolver(Gurobi.Env(), OutputFlag=0, TimeLimit=5)
+    norm_order = Inf
+    rebuild = true
+    tightening_algorithm = ta
+    tightening_solver = GurobiSolver(Gurobi.Env(), OutputFlag = 0, TimeLimit = 5)
     cache_model = false
     solve_if_predicted_in_targeted = false
 
-    (summary_file_path, summary_dt) = initialize_batch_solve(joinpath(@__DIR__, RESULT_OUTPUT_DIR), nn, pp)
+    (summary_file_path, summary_dt) =
+        initialize_batch_solve(joinpath(@__DIR__, RESULT_OUTPUT_DIR), nn, pp)
 
     image, true_one_indexed_label = first(generator())
     # Initial untimed solve
@@ -201,7 +191,7 @@ function main_solve_helper(nn, ta, eps, generator)
         true_one_indexed_label,
         main_solver,
         invert_target_selection = true,
-        pp = MIPVerify.LInfNormBoundedPerturbationFamily(eps/1000),
+        pp = MIPVerify.LInfNormBoundedPerturbationFamily(eps / 1000),
         norm_order = norm_order,
         rebuild = rebuild,
         adversarial_example_objective = MIPVerify.worst,
@@ -234,12 +224,7 @@ function main_solve_helper(nn, ta, eps, generator)
             solve_if_predicted_in_targeted = solve_if_predicted_in_targeted,
         )
 
-        save_to_disk(
-            sample_number,
-            summary_file_path,
-            d,
-            solve_if_predicted_in_targeted,
-        )
+        save_to_disk(sample_number, summary_file_path, d, solve_if_predicted_in_targeted)
     end
 end
 
@@ -254,9 +239,7 @@ function find_adversarial_example(
     tolerance::Real = 0.0,
     adversarial_example_objective::MIPVerify.AdversarialExampleObjective = MIPVerify.closest,
     tightening_algorithm::MIPVerify.TighteningAlgorithm = MIPVerify.DEFAULT_TIGHTENING_ALGORITHM,
-    tightening_solver = MIPVerify.get_default_tightening_solver(
-        main_solver,
-    ),
+    tightening_solver = MIPVerify.get_default_tightening_solver(main_solver),
     rebuild::Bool = false,
     cache_model::Bool = true,
     solve_if_predicted_in_targeted = true,
@@ -300,7 +283,12 @@ function find_adversarial_example(
             m = d[:Model]
 
             if adversarial_example_objective == MIPVerify.closest
-                MIPVerify.set_max_indexes(m, d[:Output], d[:TargetIndexes], tolerance = tolerance)
+                MIPVerify.set_max_indexes(
+                    m,
+                    d[:Output],
+                    d[:TargetIndexes],
+                    tolerance = tolerance,
+                )
 
                 # Set perturbation objective
                 # NOTE (vtjeng): It is important to set the objective immediately before we carry out

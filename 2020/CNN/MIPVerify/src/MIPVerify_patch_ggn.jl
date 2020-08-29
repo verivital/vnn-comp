@@ -6,8 +6,12 @@ using Memento
 using DataFrames
 using JuMP
 
-function log_correct(nn::NeuralNet, dataset::MIPVerify.LabelledDataset, num_samples::Integer)
-    for sample_index in 1:num_samples
+function log_correct(
+    nn::NeuralNet,
+    dataset::MIPVerify.LabelledDataset,
+    num_samples::Integer,
+)
+    for sample_index = 1:num_samples
         input = MIPVerify.get_image(dataset.images, sample_index)
         actual_label = MIPVerify.get_label(dataset.labels, sample_index)
         predicted_label = (input |> nn |> MIPVerify.get_max_index) - 1
@@ -72,9 +76,7 @@ struct DatasetProps
     variances::AbstractArray{Float64}
 end
 
-function get_dataset_props(
-    dataset::String
-)::DatasetProps
+function get_dataset_props(dataset::String)::DatasetProps
     if dataset == "MNIST"
         return DatasetProps(10, 28, 1, [0.1307], [0.3081])
     elseif dataset == "CIFAR10"
@@ -95,22 +97,49 @@ function get_ConvMed_network(
     linear_size::Int,
 )
     dp = get_dataset_props(dataset)
-    conv1 = get_conv_params(param_dict, "blocks.layers.1.conv", (5, 5, dp.input_channel, 16*width1), expected_stride = 2, padding=2, delimiter=".")
-    conv2 = get_conv_params(param_dict, "blocks.layers.3.conv", (4, 4, 16*width1, 32*width2), expected_stride = 2, padding=1, delimiter=".")
-    linear1 = get_matrix_params(param_dict, "blocks.layers.6.linear", (32*width2*floor(Int, dp.input_size / 4)^2, linear_size), delimiter=".")
-    linear2 = get_matrix_params(param_dict, "blocks.layers.8.linear", (linear_size, dp.n_class), delimiter=".")
+    conv1 = get_conv_params(
+        param_dict,
+        "blocks.layers.1.conv",
+        (5, 5, dp.input_channel, 16 * width1),
+        expected_stride = 2,
+        padding = 2,
+        delimiter = ".",
+    )
+    conv2 = get_conv_params(
+        param_dict,
+        "blocks.layers.3.conv",
+        (4, 4, 16 * width1, 32 * width2),
+        expected_stride = 2,
+        padding = 1,
+        delimiter = ".",
+    )
+    linear1 = get_matrix_params(
+        param_dict,
+        "blocks.layers.6.linear",
+        (32 * width2 * floor(Int, dp.input_size / 4)^2, linear_size),
+        delimiter = ".",
+    )
+    linear2 = get_matrix_params(
+        param_dict,
+        "blocks.layers.8.linear",
+        (linear_size, dp.n_class),
+        delimiter = ".",
+    )
 
-    nnparams = Sequential([
-        # https://github.com/eth-sri/colt/blob/20f30b073558ae80e5e726515998c1f31d48b6c6/code/loaders.py#L11-L13
-        Normalize(dp.means, dp.variances),
-        conv1,
-        ReLU(interval_arithmetic),
-        conv2,
-        ReLU(),
-        Flatten([1, 3, 2, 4]),
-        linear1,
-        ReLU(),
-        linear2], "$(network_name)"
+    nnparams = Sequential(
+        [
+            # https://github.com/eth-sri/colt/blob/20f30b073558ae80e5e726515998c1f31d48b6c6/code/loaders.py#L11-L13
+            Normalize(dp.means, dp.variances),
+            conv1,
+            ReLU(interval_arithmetic),
+            conv2,
+            ReLU(),
+            Flatten([1, 3, 2, 4]),
+            linear1,
+            ReLU(),
+            linear2,
+        ],
+        "$(network_name)",
     )
     return nnparams
 end
@@ -127,25 +156,59 @@ function get_ConvMedBig_network(
 )
     dp = get_dataset_props(dataset)
 
-    conv1 = get_conv_params(param_dict, "blocks.layers.1.conv", (3, 3, dp.input_channel, 16*width1), expected_stride = 1, padding=1, delimiter=".")
-    conv2 = get_conv_params(param_dict, "blocks.layers.3.conv", (4, 4, 16*width1, 16*width2), expected_stride = 2, padding=1, delimiter=".")
-    conv3 = get_conv_params(param_dict, "blocks.layers.5.conv", (4, 4, 16*width2, 32*width3), expected_stride = 2, padding=1, delimiter=".")
-    linear1 = get_matrix_params(param_dict, "blocks.layers.8.linear", (32*width3*floor(Int, dp.input_size / 4)^2, linear_size), delimiter=".")
-    linear2 = get_matrix_params(param_dict, "blocks.layers.10.linear", (linear_size, dp.n_class), delimiter=".")
+    conv1 = get_conv_params(
+        param_dict,
+        "blocks.layers.1.conv",
+        (3, 3, dp.input_channel, 16 * width1),
+        expected_stride = 1,
+        padding = 1,
+        delimiter = ".",
+    )
+    conv2 = get_conv_params(
+        param_dict,
+        "blocks.layers.3.conv",
+        (4, 4, 16 * width1, 16 * width2),
+        expected_stride = 2,
+        padding = 1,
+        delimiter = ".",
+    )
+    conv3 = get_conv_params(
+        param_dict,
+        "blocks.layers.5.conv",
+        (4, 4, 16 * width2, 32 * width3),
+        expected_stride = 2,
+        padding = 1,
+        delimiter = ".",
+    )
+    linear1 = get_matrix_params(
+        param_dict,
+        "blocks.layers.8.linear",
+        (32 * width3 * floor(Int, dp.input_size / 4)^2, linear_size),
+        delimiter = ".",
+    )
+    linear2 = get_matrix_params(
+        param_dict,
+        "blocks.layers.10.linear",
+        (linear_size, dp.n_class),
+        delimiter = ".",
+    )
 
-    nnparams = Sequential([
-        # https://github.com/eth-sri/colt/blob/20f30b073558ae80e5e726515998c1f31d48b6c6/code/loaders.py#L11-L13
-        Normalize(dp.means, dp.variances),
-        conv1,
-        ReLU(interval_arithmetic),
-        conv2,
-        ReLU(),
-        conv3,
-        ReLU(),
-        Flatten([1, 3, 2, 4]),
-        linear1,
-        ReLU(),
-        linear2], "$(network_name)"
+    nnparams = Sequential(
+        [
+            # https://github.com/eth-sri/colt/blob/20f30b073558ae80e5e726515998c1f31d48b6c6/code/loaders.py#L11-L13
+            Normalize(dp.means, dp.variances),
+            conv1,
+            ReLU(interval_arithmetic),
+            conv2,
+            ReLU(),
+            conv3,
+            ReLU(),
+            Flatten([1, 3, 2, 4]),
+            linear1,
+            ReLU(),
+            linear2,
+        ],
+        "$(network_name)",
     )
     return nnparams
 end
@@ -158,7 +221,7 @@ function verify(
     dataset_name::String,
     timeout_secs::Int,
     save_path::String,
-    )
+)
     dataset = read_datasets(dataset_name)
 
     println("Fraction correct of first 100 is $(frac_correct(nnparams, dataset.test, 100))")
@@ -170,7 +233,7 @@ function verify(
         nnparams,
         MIPVerify.get_image(dataset.test.images, 1),
         1,
-        GurobiSolver(TimeLimit=1),
+        GurobiSolver(TimeLimit = 1),
         pp = MIPVerify.LInfNormBoundedPerturbationFamily(0.0001),
         rebuild = true,
         tightening_algorithm = interval_arithmetic,
@@ -183,13 +246,18 @@ function verify(
         nnparams,
         dataset.test,
         target_indices,
-        GurobiSolver(Gurobi.Env(), BestObjStop=0, BestBdStop=0, TimeLimit=timeout_secs),
+        GurobiSolver(
+            Gurobi.Env(),
+            BestObjStop = 0,
+            BestBdStop = 0,
+            TimeLimit = timeout_secs,
+        ),
         pp = MIPVerify.LInfNormBoundedPerturbationFamily(eps),
-        norm_order=Inf,
-        rebuild=true,
+        norm_order = Inf,
+        rebuild = true,
         solve_rerun_option = MIPVerify.never,
-        tightening_algorithm=lp,
-        tightening_solver = GurobiSolver(Gurobi.Env(), OutputFlag=0, TimeLimit=5),
+        tightening_algorithm = lp,
+        tightening_solver = GurobiSolver(Gurobi.Env(), OutputFlag = 0, TimeLimit = 5),
         cache_model = false,
         solve_if_predicted_in_targeted = false,
         save_path = save_path,
@@ -276,10 +344,7 @@ function process_solve_status(r::Dict)
     end
 end
 
-function generate_csv_summary_line(
-    sample_number::Integer,
-    r::Dict,
-)
+function generate_csv_summary_line(sample_number::Integer, r::Dict)
     [
         sample_number,
         process_solve_status(r),
@@ -290,18 +355,8 @@ function generate_csv_summary_line(
     ] .|> string
 end
 
-function generate_csv_summary_line_optimal(
-    sample_number::Integer,
-    r::Dict,
-)
-    [
-        sample_number,
-        :Misclassified,
-        0,
-        0,
-        0,
-        r[:TotalTime],
-    ] .|> string
+function generate_csv_summary_line_optimal(sample_number::Integer, r::Dict)
+    [sample_number, :Misclassified, 0, 0, 0, r[:TotalTime]] .|> string
 end
 
 function batch_find_untargeted_attack(
@@ -316,20 +371,21 @@ function batch_find_untargeted_attack(
     tolerance::Real = 0.0,
     rebuild = false,
     tightening_algorithm::MIPVerify.TighteningAlgorithm = MIPVerify.DEFAULT_TIGHTENING_ALGORITHM,
-    tightening_solver = MIPVerify.get_default_tightening_solver(
-        main_solver,
-    ),
+    tightening_solver = MIPVerify.get_default_tightening_solver(main_solver),
     cache_model = true,
     solve_if_predicted_in_targeted = true,
     adversarial_example_objective = MIPVerify.closest,
 )::Nothing
 
     MIPVerify.verify_target_indices(target_indices, dataset)
-    (summary_file_path, dt) =
-        initialize_batch_solve(save_path, nn, pp)
+    (summary_file_path, dt) = initialize_batch_solve(save_path, nn, pp)
 
     for sample_number in target_indices
-        should_run = MIPVerify.run_on_sample_for_untargeted_attack(sample_number, dt, solve_rerun_option)
+        should_run = MIPVerify.run_on_sample_for_untargeted_attack(
+            sample_number,
+            dt,
+            solve_rerun_option,
+        )
         if should_run
             # TODO (vtjeng): change function signature for get_image and get_label
             Memento.info(MIPVerify.LOGGER, "Working on index $(sample_number)")
@@ -374,9 +430,7 @@ function find_adversarial_example(
     tolerance::Real = 0.0,
     adversarial_example_objective::MIPVerify.AdversarialExampleObjective = MIPVerify.closest,
     tightening_algorithm::MIPVerify.TighteningAlgorithm = MIPVerify.DEFAULT_TIGHTENING_ALGORITHM,
-    tightening_solver = MIPVerify.get_default_tightening_solver(
-        main_solver,
-    ),
+    tightening_solver = MIPVerify.get_default_tightening_solver(main_solver),
     rebuild::Bool = false,
     cache_model::Bool = true,
     solve_if_predicted_in_targeted = true,
@@ -420,7 +474,12 @@ function find_adversarial_example(
             m = d[:Model]
 
             if adversarial_example_objective == MIPVerify.closest
-                MIPVerify.set_max_indexes(m, d[:Output], d[:TargetIndexes], tolerance = tolerance)
+                MIPVerify.set_max_indexes(
+                    m,
+                    d[:Output],
+                    d[:TargetIndexes],
+                    tolerance = tolerance,
+                )
 
                 # Set perturbation objective
                 # NOTE (vtjeng): It is important to set the objective immediately before we carry out

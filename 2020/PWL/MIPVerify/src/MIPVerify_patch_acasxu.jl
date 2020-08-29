@@ -53,11 +53,7 @@ function process_verification_status(r::Dict)
     end
 end
 
-function generate_csv_summary_line(
-    property_id::Integer,
-    network_id::String,
-    r::Dict,
-)
+function generate_csv_summary_line(property_id::Integer, network_id::String, r::Dict)
     verification_status = process_verification_status(r)
 
     input_value = NaN
@@ -105,7 +101,7 @@ function verify_property(
 
     total_time = @elapsed begin
         # dictionary to store results
-        d = Dict{Symbol, Any}()
+        d = Dict{Symbol,Any}()
 
         m = Model()
         d[:Model] = m
@@ -117,10 +113,7 @@ function verify_property(
         m.ext[:MIPVerify] = MIPVerify.MIPVerifyExt(tightening_algorithm)
 
         # v_in is the variable representing the actual range of input values
-        v_in = @variable(
-            m,
-            x[i=1:nnet.input_size]
-        )
+        v_in = @variable(m, x[i = 1:nnet.input_size])
 
         # these input constraints need to be set before we feed the bounds
         # forward through the network via the call nn(v_in)

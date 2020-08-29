@@ -9,17 +9,14 @@ param_dict = matread(joinpath(@__DIR__, "../../networks/mnist-net_256x2.mat"))
 
 # TODO: Ideally we'd get this directly from the .onnx file. We use the script scripts/conversion/extract_onnx_params.py for now.
 
-linear1 = get_matrix_params(param_dict, "layers.0", (784, 256), delimiter=".")
-linear2 = get_matrix_params(param_dict, "layers.2", (256, 256), delimiter=".")
-linear3 = get_matrix_params(param_dict, "layers.4", (256, 10), delimiter=".")
+linear1 = get_matrix_params(param_dict, "layers.0", (784, 256), delimiter = ".")
+linear2 = get_matrix_params(param_dict, "layers.2", (256, 256), delimiter = ".")
+linear3 = get_matrix_params(param_dict, "layers.4", (256, 10), delimiter = ".")
 
-nn = Sequential([
-    linear1,
-    ReLU(interval_arithmetic),
-    linear2,
-    ReLU(),
-    linear3,
-], "mnist-net_256x2")
+nn = Sequential(
+    [linear1, ReLU(interval_arithmetic), linear2, ReLU(), linear3],
+    "mnist-net_256x2",
+)
 
 MIPVerify.setloglevel!("info")
 

@@ -27,8 +27,8 @@ Attributes:
     biases (list of arrays): Bias vectors in network
 """
 struct NNet
-    weights::Array{Array{Float64, 2},1}
-    biases::Array{Array{Float64, 1},1}
+    weights::Array{Array{Float64,2},1}
+    biases::Array{Array{Float64,1},1}
     num_layers::Int32
     layer_sizes::Array{Int32,1}
     input_size::Int32
@@ -54,7 +54,7 @@ function NNet(filename::AbstractString)
     open(filename) do f
         # Skip any header lines
         line = readline(f)
-        while line[1:2]=="//"
+        while line[1:2] == "//"
             line = readline(f)
         end
 
@@ -63,7 +63,7 @@ function NNet(filename::AbstractString)
         num_layers, input_size, output_size = parse_nnet_line(line, Int32)
 
         layer_sizes = read_nnet_line(f, Int32)[:]
-        @assert size(layer_sizes) == (num_layers + 1, )
+        @assert size(layer_sizes) == (num_layers + 1,)
         @assert layer_sizes[1] == input_size
         @assert layer_sizes[end] == output_size
 
@@ -71,32 +71,43 @@ function NNet(filename::AbstractString)
         readline(f)
 
         mins = read_nnet_line(f, Float64)[:]
-        @assert size(mins) == (input_size, )
+        @assert size(mins) == (input_size,)
 
         maxes = read_nnet_line(f, Float64)[:]
-        @assert size(maxes) == (input_size, )
+        @assert size(maxes) == (input_size,)
 
         means = read_nnet_line(f, Float64)[:]
-        @assert size(means) == (input_size + 1, )
+        @assert size(means) == (input_size + 1,)
 
         ranges = read_nnet_line(f, Float64)[:]
-        @assert size(ranges) == (input_size + 1, )
+        @assert size(ranges) == (input_size + 1,)
 
         weights = Matrix{Float64}[]
         biases = Vector{Float64}[]
-        for layer_idx in 1:num_layers
+        for layer_idx = 1:num_layers
             layer_input_size = layer_sizes[layer_idx]
-            layer_output_size = layer_sizes[layer_idx + 1]
-            weight = vcat([read_nnet_line(f, Float64) for _ in 1:layer_output_size]...)
+            layer_output_size = layer_sizes[layer_idx+1]
+            weight = vcat([read_nnet_line(f, Float64) for _ = 1:layer_output_size]...)
             @assert size(weight) == (layer_output_size, layer_input_size)
-            raw_bias = hcat([read_nnet_line(f, Float64) for _ in 1:layer_output_size]...)
+            raw_bias = hcat([read_nnet_line(f, Float64) for _ = 1:layer_output_size]...)
             bias = raw_bias[:]
             @assert size(bias) == (layer_output_size,)
             push!(weights, weight)
             push!(biases, bias)
         end
 
-        params = [weights, biases, num_layers, layer_sizes, input_size, output_size, mins, maxes, means, ranges]
+        params = [
+            weights,
+            biases,
+            num_layers,
+            layer_sizes,
+            input_size,
+            output_size,
+            mins,
+            maxes,
+            means,
+            ranges,
+        ]
 
         # Validate that we have read all of the data
         @assert eof(f)
@@ -150,25 +161,31 @@ end
 function normalize_input(x::Real, nnet::NNet, index::Int)::Float64
     @assert index >= 1
     @assert index <= nnet.input_size
-    return (x - nnet.means[index])/nnet.ranges[index]
+    return (x - nnet.means[index]) / nnet.ranges[index]
 end
 
 function normalize_output(x::Real, nnet::NNet)::Float64
-    return (x - nnet.means[end])/nnet.ranges[end]
+    return (x - nnet.means[end]) / nnet.ranges[end]
 end
 
-function denormalize_output(xs_normalized::Array{T, 1}, nnet::NNet)::Array{Float64, 1} where T<:Real
-    return xs_normalized*nnet.ranges[end] .+ nnet.means[end]
+function denormalize_output(
+    xs_normalized::Array{T,1},
+    nnet::NNet,
+)::Array{Float64,1} where {T<:Real}
+    return xs_normalized * nnet.ranges[end] .+ nnet.means[end]
 end
 
-function normalize_input(xs::Array{T, 1}, nnet::NNet)::Array{Float64, 1} where T<:Real
+function normalize_input(xs::Array{T,1}, nnet::NNet)::Array{Float64,1} where {T<:Real}
     @assert length(xs) == nnet.input_size
-    return (xs - nnet.means[1:nnet.input_size])./nnet.ranges[1:nnet.input_size]
+    return (xs - nnet.means[1:nnet.input_size]) ./ nnet.ranges[1:nnet.input_size]
 end
 
-function denormalize_input(xs_normalized::Array{T, 1}, nnet::NNet)::Array{Float64, 1} where T<:Real
+function denormalize_input(
+    xs_normalized::Array{T,1},
+    nnet::NNet,
+)::Array{Float64,1} where {T<:Real}
     @assert length(xs_normalized) == nnet.input_size
-    return xs_normalized.*nnet.ranges[1:nnet.input_size] + nnet.means[1:nnet.input_size]
+    return xs_normalized .* nnet.ranges[1:nnet.input_size] + nnet.means[1:nnet.input_size]
 end
 
 """
@@ -178,7 +195,12 @@ mins: [0.0, -3.141593, -3.141593, 100.0, 0.0]
 maxes: [60760.0, 3.141593, 3.141593, 1200.0, 1200.0]
 """
 
-function set_standard_input_constraints(v_input::Array{JuMP.Variable, 1}, lower_bounds::Array{Float64, 1}, upper_bounds::Array{Float64, 1}, nnet::NNet)
+function set_standard_input_constraints(
+    v_input::Array{JuMP.Variable,1},
+    lower_bounds::Array{Float64,1},
+    upper_bounds::Array{Float64,1},
+    nnet::NNet,
+)
     @assert length(v_input) == length(lower_bounds)
     @assert length(v_input) == length(upper_bounds)
     @assert all(lower_bounds .<= upper_bounds) "Lower bounds $lower_bounds must be elementwise no greater than upper bounds $upper_bounds"
@@ -187,7 +209,10 @@ function set_standard_input_constraints(v_input::Array{JuMP.Variable, 1}, lower_
     setlowerbound.(v_input, normalize_input(max.(lower_bounds, nnet.mins), nnet))
 end
 
-function get_minimality_objective(v_output::Array{T, 1}, target_indices::AbstractArray{Int, 1}) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_minimality_objective(
+    v_output::Array{T,1},
+    target_indices::AbstractArray{Int,1},
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the minimum value of the target_indices *is* smaller than the minimum
     value of the non-target_indices.
@@ -203,12 +228,12 @@ function get_minimality_objective(v_output::Array{T, 1}, target_indices::Abstrac
     return min_target - min_off_target
 end
 
-function get_default_warm_start(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
-    return (lowerbound.(v_input) + upperbound.(v_input))./2
+function get_default_warm_start(v_input::Array{JuMP.Variable,1}, nnet::NNet)
+    return (lowerbound.(v_input) + upperbound.(v_input)) ./ 2
 end
 
 ## PROPERTY 1
-function set_p1_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p1_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     ρ ≥ 55947.691
     v_own ≥ 1145
@@ -222,7 +247,10 @@ function set_p1_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
     )
 end
 
-function get_p1_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p1_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the score for COC is at most 1500.
 
@@ -231,16 +259,16 @@ function get_p1_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuM
     return (v_output[1] - normalize_output(1500, nnet))
 end
 
-property1 = VerificationProperty(
-    set_p1_input_constraints,
-    get_p1_objective,
-    get_default_warm_start,
-)
+property1 =
+    VerificationProperty(set_p1_input_constraints, get_p1_objective, get_default_warm_start)
 
 
 
 ## PROPERTY 2
-function get_p2_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p2_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the score for COC *is not* the maximal score
 
@@ -260,7 +288,7 @@ property2 = VerificationProperty(
 
 
 ## PROPERTY 3
-function set_p3_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p3_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     1500 ≤ ρ ≤ 1800
     −0.06 ≤ θ ≤ 0.06
@@ -272,11 +300,14 @@ function set_p3_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
         v_input,
         [1500, -0.06, 3.10, 980, 960],
         [1800, 0.06, Inf, Inf, Inf],
-        nnet
+        nnet,
     )
 end
 
-function get_p3_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p3_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the score for COC *is not* the minimal score.
 
@@ -285,16 +316,13 @@ function get_p3_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuM
     return get_minimality_objective(v_output, 2:5)
 end
 
-property3 = VerificationProperty(
-    set_p3_input_constraints,
-    get_p3_objective,
-    get_default_warm_start,
-)
+property3 =
+    VerificationProperty(set_p3_input_constraints, get_p3_objective, get_default_warm_start)
 
 
 
 ## PROPERTY 4
-function set_p4_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p4_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     1500 ≤ ρ ≤ 1800
     −0.06 ≤ θ ≤ 0.06
@@ -320,7 +348,7 @@ property4 = VerificationProperty(
 
 
 ## PROPERTY 5
-function set_p5_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p5_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     250 ≤ ρ ≤ 400
     0.2 ≤ θ ≤ 0.4
@@ -332,27 +360,27 @@ function set_p5_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
         v_input,
         [250, 0.2, -3.141592, 100, 0],
         [400, 0.4, -3.141592 + 0.005, 400, 400],
-        nnet
+        nnet,
     )
 end
 
-function get_p5_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p5_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the score for "strong right" *is* the minimal score.
     """
     return get_minimality_objective(v_output, [5])
 end
 
-property5 = VerificationProperty(
-    set_p5_input_constraints,
-    get_p5_objective,
-    get_default_warm_start,
-)
+property5 =
+    VerificationProperty(set_p5_input_constraints, get_p5_objective, get_default_warm_start)
 
 
 
 ## PROPERTY 6
-function set_p6_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p6_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     12000 ≤ ρ ≤ 62000
     (0.7 ≤ θ ≤ 3.141592) ∨ (−3.141592 ≤ θ ≤ −0.7)
@@ -364,52 +392,50 @@ function set_p6_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
         v_input,
         [12000, -3.141592, -3.141592, 100, 0],
         [62000, 3.141592, -3.141592 + 0.005, 1200, 1200],
-        nnet
+        nnet,
     )
 
     θ = v_input[2]
     m = ConditionalJuMP.getmodel(θ)
     # abs(x) = -x+2*max(x, 0)
     # Also, we take advantage of the fact that the normalization here is symmetric
-    @constraint(m, -θ+2*MIPVerify.relu(θ) >= normalize_input(0.7, nnet, 2))
+    @constraint(m, -θ + 2 * MIPVerify.relu(θ) >= normalize_input(0.7, nnet, 2))
 end
 
-function get_p6_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p6_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the score for "COC" *is* the minimal score.
     """
     return get_minimality_objective(v_output, [1])
 end
 
-function get_p6_warm_start(v_input::Array{JuMP.Variable, 1}, nnet::NNet)::Array{Float64, 1}
+function get_p6_warm_start(v_input::Array{JuMP.Variable,1}, nnet::NNet)::Array{Float64,1}
     warm_start = get_default_warm_start(v_input, nnet)
     # can't just use midpoint of upper and lower bounds as we have a disjunction here
     warm_start[2] = normalize_input(1.0, nnet, 2)
     return warm_start
 end
 
-property6 = VerificationProperty(
-    set_p6_input_constraints,
-    get_p6_objective,
-    get_p6_warm_start,
-)
+property6 =
+    VerificationProperty(set_p6_input_constraints, get_p6_objective, get_p6_warm_start)
 
 
 
 ## PROPERTY 7
-function set_p7_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p7_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     We are meant to search the whole input space here.
     """
-    set_standard_input_constraints(
-        v_input,
-        -Inf*ones(5),
-        Inf*ones(5),
-        nnet,
-    )
+    set_standard_input_constraints(v_input, -Inf * ones(5), Inf * ones(5), nnet)
 end
 
-function get_p7_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p7_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the scores for "strong right" and "strong left" *are never* the minimal scores.
 
@@ -428,7 +454,7 @@ property7 = VerificationProperty(
 
 
 ## PROPERTY 8
-function set_p8_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p8_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     0 ≤ ρ ≤ 60760
     -3.141592 ≤ θ ≤ -0.75·3.141592
@@ -439,28 +465,28 @@ function set_p8_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
     set_standard_input_constraints(
         v_input,
         [0, -3.141592, -0.1, 600, 600],
-        [60760, -0.75*3.141592, 0.1, 1200, 1200],
+        [60760, -0.75 * 3.141592, 0.1, 1200, 1200],
         nnet,
     )
 end
 
-function get_p8_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p8_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the scores for "weak left" or the score for COC is minimal.
     """
     return get_minimality_objective(v_output, 1:2)
 end
 
-property8 = VerificationProperty(
-    set_p8_input_constraints,
-    get_p8_objective,
-    get_default_warm_start,
-)
+property8 =
+    VerificationProperty(set_p8_input_constraints, get_p8_objective, get_default_warm_start)
 
 
 
 ## PROPERTY 9
-function set_p9_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p9_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     2000 ≤ ρ ≤ 7000
     −0.4 ≤ θ ≤ −0.14
@@ -476,23 +502,23 @@ function set_p9_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
     )
 end
 
-function get_p9_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p9_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the score for “strong left” is minimal
     """
     return get_minimality_objective(v_output, [4])
 end
 
-property9 = VerificationProperty(
-    set_p9_input_constraints,
-    get_p9_objective,
-    get_default_warm_start,
-)
+property9 =
+    VerificationProperty(set_p9_input_constraints, get_p9_objective, get_default_warm_start)
 
 
 
 ## PROPERTY 10
-function set_p10_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
+function set_p10_input_constraints(v_input::Array{JuMP.Variable,1}, nnet::NNet)
     """
     36000 ≤ ρ ≤ 60760
     0.7 ≤ θ ≤ 3.141592
@@ -508,7 +534,10 @@ function set_p10_input_constraints(v_input::Array{JuMP.Variable, 1}, nnet::NNet)
     )
 end
 
-function get_p10_objective(v_output::Array{T, 1}, nnet::NNet) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
+function get_p10_objective(
+    v_output::Array{T,1},
+    nnet::NNet,
+) where {T<:Union{JuMP.Variable,JuMP.AffExpr}}
     """
     Desired output property: the score for “COC” is minimal
     """

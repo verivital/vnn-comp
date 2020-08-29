@@ -13,17 +13,15 @@ NETWORK_PATH = joinpath(@__DIR__, "../../../benchmark/acasxu")
 main_timeout = 60 * 60 * 6     # seconds, for overall problem
 tightening_timeout = 1    # seconds, per non-linearity added
 
-main_solver = GurobiSolver(
-    Gurobi.Env(),
-    BestObjStop=0,
-    BestBdStop=0,
-    TimeLimit=main_timeout,
-)
-tightening_solver = GurobiSolver(Gurobi.Env(), OutputFlag=0, TimeLimit=tightening_timeout)
+main_solver =
+    GurobiSolver(Gurobi.Env(), BestObjStop = 0, BestBdStop = 0, TimeLimit = main_timeout)
+tightening_solver =
+    GurobiSolver(Gurobi.Env(), OutputFlag = 0, TimeLimit = tightening_timeout)
 tightening_algorithm = lp
 
 ## INITIALIZE BATCH SOLVE
-summary_file_path, summary_dt = initialize_batch_solve(joinpath(@__DIR__, "../../results/acasxu-hard"))
+summary_file_path, summary_dt =
+    initialize_batch_solve(joinpath(@__DIR__, "../../results/acasxu-hard"))
 
 ## INITIAL, UNTIMED SOLVE
 # We select a very simple instance for this and set a very short timeout
@@ -51,12 +49,11 @@ network_property_pairs = [
 ]
 
 for (netid2, netid1, property_id) in network_property_pairs
-
     network_id = "$(netid1)_$(netid2)"
     property = properties[property_id]
 
     # Check if a previous solve exists and skip if it does
-    if any((summary_dt.NetworkID.==network_id).&(summary_dt.PropertyID.==property_id))
+    if any((summary_dt.NetworkID .== network_id) .& (summary_dt.PropertyID .== property_id))
         continue
     end
 
