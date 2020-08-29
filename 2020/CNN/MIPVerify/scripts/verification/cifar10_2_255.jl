@@ -2,6 +2,10 @@
 using MAT
 include("../../src/MIPVerify_patch_ggn.jl")
 
+
+# We reported a timeout for each of the benchmarks here as the verifier encountered time-outs
+# for most of the pre-solves anyway.
+
 # param_dict = matread(joinpath(@__DIR__, "../../networks/cifar10_2_255.mat"))
 #
 # nnparams = get_ConvMedBig_network(
@@ -19,6 +23,3 @@ include("../../src/MIPVerify_patch_ggn.jl")
 #     5*60,
 #     joinpath(@__DIR__, "../../results/ggn-cnn"),
 # )
-
-# We are specifying a timeout for each benchmark here; for many samples, the pre-solve itself takes
-# > 5 minutes
