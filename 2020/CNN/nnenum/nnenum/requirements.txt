@@ -1,5 +1,5 @@
 tensorflow==2.2.0 
-numpy==1.17.4
+numpy==1.22.0
 scipy==1.4.1
 foolbox==2.4.0
 threadpoolctl==2.1.0
